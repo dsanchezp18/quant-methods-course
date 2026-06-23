@@ -2,7 +2,7 @@
 title: Quantitative Methods for Business and Economics
 subtitle: Lecture 1 - Introduction and foundational concepts
 author: Daniel Sánchez Pazmiño
-date: 2024-01-01
+date: 2026-01-01
 theme: berlin
 date-format: "YYYY"
 format: beamer
@@ -14,15 +14,15 @@ include-in-header:
         \usecolortheme[named=black]{structure}
 ---
 
-# Introduction: Mathematics and the Social Sciences
+# Introduction: Mathematics for Business and Economics
 
-- Mathematics per se **not** a distinct field in the social sciences 
+- Mathematics per se **not** a distinct field in business and economics 
 
 - We use mathematics **as an approach** to study reality
 
-- It is not hard to think about social science models which were initially not mathematical
-    - Freud's model of the id, ego, and superego
-    - Downs' of rational voting through utility maximization
+- It is not hard to think about business and economic models which were initially not mathematical
+    - Consumer choice through utility maximization
+    - Firm pricing and profit maximization
     - Schumpeter's model of creative destruction
 
 - Modern researchers represent models using math
@@ -140,7 +140,7 @@ $$ \$75 \cdot (1 - 0.25) = \$75 \cdot 0.75 = \$56.25$$
 
 - Notice that the new final price is 75% of the original price, so this makes sense!
     - Don't be afraid to use your intuition
-    - Social scientists are not math machines, we use intuition to guide us
+    - Business analysts and economists are not math machines, we use intuition to guide us
 
 # Percentage change and subindices
 
@@ -161,9 +161,9 @@ $$ \Delta \% = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \% = \frac{
 
 # Solving for a final value after a percentage change
 
-- Example: The central government has proposed a 10% increase in the minimum wage. If the current minimum wage is \$460, what would be the new minimum wage?
+- Example: A company gives employees a 10% raise. If an employee currently earns \$46,000 per year, what would the new salary be?
 
-- Typically, one would calculate the 10% of \$460 and add it to the original value.
+- Typically, one would calculate 10% of \$46,000 and add it to the original value.
 
 $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
@@ -173,31 +173,31 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 - However, it is also intuitive, since you're simply finding a value which is 10% larger than the whole (which is 1). 
 
-- So, the new minimum wage is \$460 $\times$ 1.10 = \$506
+- So, the new salary is \$46,000 $\times$ 1.10 = \$50,600
 
 # Solving for a final value after a percentage change
 
 - The same can be done for percentage *decreases*
 
-- Example: The average wage of an economics graduate has decreased by 5%. If the average wage was \$500, what is the new average wage?
+- Example: A store's weekly revenue has decreased by 5%. If revenue was \$500, what is the new weekly revenue?
 
-- The new average wage is \$500 $\times$ (1-0.05) = \$500 $\times$ 0.95 = \$475
+- The new weekly revenue is \$500 $\times$ (1-0.05) = \$500 $\times$ 0.95 = \$475
 
-- Once again, this is intuitive: the new wage is only 95% of the original wage
+- Once again, this is intuitive: the new revenue is only 95% of the original revenue
 
 # An exercise for you
 
-- Example: A Juan Valdez iced matcha latte costs \$3.50. What is the added value tax being paid by the consumer?
+- Example: A coffee drink in Toronto costs CAD 3.50 after a 15% sales tax. How much tax is the consumer paying?
 
 # Solution
 
-- The current tax is 15% of the price
+- The current tax is 15% of the pre-tax price
 
-- In Ecuador, law mandates that the tax is included in the price
+- In many Canadian retail settings, taxes are added based on the pre-tax price
 
 - The price after tax can be calculated as $P_{\text{bf}} \cdot 1.15 = 3.50$, so it is $3.50 / 1.15 \approx 3.04$
 
-- The tax is the difference between the price before and after tax, so it is $3.50 - 3.04 = 0.46$
+- The tax is the difference between the pre-tax and final price, so it is $3.50 - 3.04 = 0.46$
 
 - Notice that if I had calculated 15% of \$3.50, I would have gotten \$0.525, which is not the same
 
@@ -226,14 +226,14 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 - However, if you're told that in a hospital the ratio of doctors to nurses is 1:2, then doctors are 1/3 of the whole staff
 
-# Application: tax rate changes and percentage change interpretations
+# Application: sales tax changes and percentage change interpretations
 
-- Recently, the Ecuadorian government increased the value-added tax (VAT) rate from 12% to 15%
+- Suppose a sales tax rate rises from 12% to 15%
 
 - Question for you: which the following statements is correct?
-    1. There was a 3% increase in the VAT rate
-    2. There was a 25% increase in the VAT rate
-    3. There was a 15% increase in the VAT rate
+    1. There was a 3 percentage point increase in the sales tax rate
+    2. There was a 25% increase in the sales tax rate
+    3. There was a 15% increase in the sales tax rate
 
 # Percentage points and percent changes
 
@@ -277,9 +277,9 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 - A function doesn't necessarily have to be a mathematical formula, but it is often represented as one
 
-- Social scientists use functions to represent social phenomena
-    - E.g. the relationship between income and happiness
-    - E.g. the relationship between education and income
+- Economists and business analysts use functions to represent real-world relationships
+    - E.g. the relationship between advertising and sales
+    - E.g. the relationship between price and quantity demanded
 
 - Functions can be linear, quadratic, exponential, logarithmic, etc.
 
@@ -378,6 +378,6 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 - If the percentage change in output is more than the percentage change in inputs, we say that the production function has increasing returns to scale.
     - If you double the inputs, you get more than double the outputs
 
-- Returns to scale are important for understanding the behavior of firms and countries.
-    - What kind of production function do you think Ecuador has?
-    - How do you think researchers can estimate the production function of a country?
+- Returns to scale are important for understanding the behavior of firms and industries.
+    - What kind of production function do you think a fast-food chain might have?
+    - How do you think analysts can estimate the production function of a firm?
