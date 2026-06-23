@@ -1,7 +1,6 @@
 ---
-title: Math for the Social Sciences Module - Young Researchers Fellowship
+title: Quantitative Methods for Business and Economics
 subtitle: Lecture 6 - Single Variable Calculus & Optimization
-institute: Laboratorio de Investigación para el Desarrollo del Ecuador
 author: Daniel Sánchez Pazmiño
 date: 2024-01-01
 theme: berlin

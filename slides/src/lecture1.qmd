@@ -1,7 +1,6 @@
 ---
-title: Math for the Social Sciences Module - Young Researchers Fellowship
+title: Quantitative Methods for Business and Economics
 subtitle: Lecture 1 - Introduction and foundational concepts
-institute: Laboratorio de Investigación para el Desarrollo del Ecuador
 author: Daniel Sánchez Pazmiño
 date: 2024-01-01
 theme: berlin
@@ -108,7 +107,7 @@ $$ 4 \times 1 = 4$$
 
 # The Greek alphabet
 
-![Greek alphabet. Source: University of Northern Colorado](img/greek_alphabet.png)
+![Greek alphabet. Source: University of Northern Colorado](../assets/img/greek_alphabet.png)
 
 - Commonly, the same letter is used for different purposes in different fields and contexts
     - $\beta$ represents the slope coefficient, but also the discount factor in finance

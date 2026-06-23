@@ -1,7 +1,6 @@
 ---
-title: Math for the Social Sciences Module - Young Researchers Fellowship
+title: Quantitative Methods for Business and Economics
 subtitle: Lecture 2 - Sigma Notation and Further Topics on Algebra
-institute: Laboratorio de Investigación para el Desarrollo del Ecuador
 author: Daniel Sánchez Pazmiño
 date: 2024-01-01
 theme: berlin
@@ -21,7 +20,7 @@ include-in-header:
 
 - The set of real numbers is denoted by $\mathbb{R}$.
 
-![Real numbers. Source: Lamar State College](img/real_numbers.png){height=80%}
+![Real numbers. Source: Lamar State College](../assets/img/real_numbers.png){height=80%}
 
 # Summation
 
