@@ -23,7 +23,6 @@ include-in-header:
 - It is not hard to think about business and economic models which were initially not mathematical
     - Consumer choice through utility maximization
     - Firm pricing and profit maximization
-    - Schumpeter's model of creative destruction
 
 - Modern researchers represent models using math
     - Allows to extend the model using mathematical "laws"
@@ -191,19 +190,13 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 # Solution
 
-- The current tax is 15% of the pre-tax price
+- The stated price (\$3.50) is the total paid after tax, so the pre-tax price $P_0$ satisfies $P_0 \cdot 1.15 = 3.50$
 
-- In many Canadian retail settings, taxes are added based on the pre-tax price
+- Solving: $P_0 = 3.50 / 1.15 \approx 3.04$, so the tax is $3.50 - 3.04 \approx \$0.46$
 
-- The price after tax can be calculated as $P_{\text{bf}} \cdot 1.15 = 3.50$, so it is $3.50 / 1.15 \approx 3.04$
+- If instead you computed $15\% \times \$3.50 = \$0.525$ — that is wrong, because the tax applies to $P_0$, not the final price
 
-- The tax is the difference between the pre-tax and final price, so it is $3.50 - 3.04 = 0.46$
-
-- Notice that if I had calculated 15% of \$3.50, I would have gotten \$0.525, which is not the same
-
-- This is because the tax is calculated on the price before tax, not the price after tax.
-
-- You have to be very careful when defining the "whole" in the percentage formula!
+- Key lesson: always be clear about what the "whole" is in the percentage formula
 
 # Ratios
 
@@ -215,14 +208,14 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 - These can be a bit confusing, but context is helpful.
     - A ratio of 1:2 means that for every 1 unit of the first part, there are 2 units of the second part
     
-- Example: A production function using a ratio of 1:2 for labor and capital means that for every 1 unit of labor, 2 units of capital are used.
+- Example: A company allocates budget between R&D and marketing in a ratio of 1:2, meaning for every \$1 in R&D, \$2 goes to marketing.
 
 # Ratios
 
 - You can work out the the relationship from one part to the whole by adding the parts of the ratio.
     - This may or may not make sense depending on the context
 
-- With a ratio of 1:2 for labor and capital, the whole is 3 units, but this is not meaningful
+- With a ratio of 1:2 for R&D and marketing, the whole is 3 parts, but this is not meaningful on its own
 
 - However, if you're told that in a hospital the ratio of doctors to nurses is 1:2, then doctors are 1/3 of the whole staff
 
@@ -237,15 +230,15 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 # Percentage points and percent changes
 
-- When we are analyzing something is measured in percentages itself, we need to be careful
+- When the quantity being analyzed is itself a percentage, we need to distinguish two concepts
 
-- We call the the absolute change for these cases a **percentage point change**
+- **Percentage point change**: the absolute difference — $15\% - 12\% = 3$ percentage points (statement 1)
 
-- This is different from a **percent change**, which is the relative change from a value
+- **Percent change**: the relative change — $(15 - 12)/12 \times 100 = 25\%$ (statement 2)
 
-- It might or might not be useful to use percentage changes for these cases, as it can be misleading
+- Both statements 1 and 2 are correct; they measure the same change in different ways
 
-- This is when expressing everything as a proportion might be useful.
+- Statement 3 is wrong — $15\%$ is the new rate, not the change
 
 # Equations 
 
@@ -337,47 +330,3 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 - Inequalities are often used to represent constraints in optimization problems
 
-# Application: returns to scale in a production function
-
-- A production function is a mathematical model of how a country, a firm or any economic agent transform resources (inputs) into goods and services (outputs)
-
-- In certain contexts, researchers care about whether the production function can be scaled
-    - This means asking whether doubling the inputs will double the outputs?
-    - This is called **returns to scale**
-
-- This can be worked out by combining all of our knowledge so far
-
-# Application: returns to scale in a production function
-
-- A production function is given by $Q = 2L + 3K$, where $Q$ is the output, $L$ is labor, and $K$ is capital.
-    - Think of it as a firm that produces goods (can be pizza) using workers and ovens.
-
-- What happens to output if we double both labor and capital? Can the pizza firm double pizza production? 
-
-- We can work this out by plugging in values to the production function.
-    - We need a base value of output. Let us see what happens when $L = 1$ and $K = 1$.
-    - $Q = 2(1) + 3(1) = 2 + 3 = 5$
-
-- Now, let us see what happens when $L = 2$ and $K = 2$.
-    - $Q = 2(2) + 3(2) = 4 + 6 = 10$
-
-# Application: returns to scale in a production function
-
-- How to see if output has doubled? We can calculate the percentage change in output.
-    - $\Delta \% = 10/5 - 1 = 1$
-    - This means that output changed by 100% (doubled)
-
-- When output changes by the same proportion as the inputs, we say that the production function has constant returns to scale.
-    - If you double the inputs, you double the outputs
-
-# Application: returns to scale in a production function
-
-- If the percentage change in output is less than the percentage change in inputs, we say that the production function has decreasing returns to scale.
-    - If you double the inputs, you get less than double the outputs
-
-- If the percentage change in output is more than the percentage change in inputs, we say that the production function has increasing returns to scale.
-    - If you double the inputs, you get more than double the outputs
-
-- Returns to scale are important for understanding the behavior of firms and industries.
-    - What kind of production function do you think a fast-food chain might have?
-    - How do you think analysts can estimate the production function of a firm?
