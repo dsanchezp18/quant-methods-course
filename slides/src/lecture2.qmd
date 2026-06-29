@@ -2,7 +2,7 @@
 title: Quantitative Methods for Business and Economics
 subtitle: Lecture 2 - Sigma Notation and Further Topics on Algebra
 author: Daniel Sánchez Pazmiño
-date: 2024-01-01
+date: 2026-01-01
 theme: berlin
 date-format: "YYYY"
 format: beamer
@@ -34,7 +34,7 @@ $$1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 = 55$$
     - It is a lot to write down! Let's use an *ellipsis* to denote the sequence.
 
 $$1 + 2 + 3 + \ldots + 98 + 99 + 100 = 5,050$$
-`
+
 - However, this is still a lot to write down!
 
 # Sigma or summation notation
@@ -43,7 +43,7 @@ $$1 + 2 + 3 + \ldots + 98 + 99 + 100 = 5,050$$
 
 - The sum of the first 10 natural numbers can be written as:
 
-$$\sum_{i=1}^{10} = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10$$
+$$\sum_{i=1}^{10} i = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10$$
 
 - Notice that the index $i$ represents the starting point of the sum.
     - The upper number denotes the last number to be added.
@@ -78,7 +78,7 @@ where $x_i$ are the numbers in the sequence and $n$ is the count of numbers.
 
 $$\sum_{i=1}^{n} c x_i = c \sum_{i=1}^{n} x_i$$
 
-This is a re-estatement of the distributive property of addition. For example, if $c = 2$:
+This is a re-statement of the distributive property of addition. For example, if $c = 2$:
 
 $$2(1 + 2 + 3 + 4 + 5) = 2 + 4 + 6 + 8 + 10 = 30$$
 
@@ -110,7 +110,7 @@ $$x^n = x \cdot x \cdot x \cdot \ldots \cdot x (\text{n times})$$
 
 # Common mistakes with exponents
 
--$x^m \cdot y^n = x^{m+n}$
+- $x^m \cdot y^n = x^{m+n}$
 
 -$(x+y)^n = x^{n} + y^n$
 
@@ -122,7 +122,7 @@ $$x^n = x \cdot x \cdot x \cdot \ldots \cdot x (\text{n times})$$
 
 - Most common roots are the square root ($n=2$) and the cube root ($n=3$).
 
-- In english, you may hear the square root of $x$ as "the sqrt" of $x$. 
+- In English, you may hear the square root of $x$ as "the sqrt" of $x$. 
     - This might be confusing in Spanish, where "la raíz" is used. 
     - Emerges from a coding context in many mathematical/statistical software: `sqrt(x)`.
     - A calculator will typically understand sqrt(4) as 2, and so on.
@@ -215,49 +215,41 @@ $$(x - 2)(x - 3) = 0$$
 
 $$|x + y| \leq |x| + |y|$$
 
-# Cobb-Douglas production functions
 
-- The Cobb-Douglas production function is a common functional form used in economics.
+# Application: break-even analysis
 
-- The production function is given by:
+- A firm sells a product at price $P$ per unit
 
-$$Q = A L^{\alpha} K^{\beta}$$
+- **Fixed costs** $FC$: rent, salaries, equipment — paid regardless of output
 
-where $Q$ is the quantity of output, $L$ is the quantity of labor, $K$ is the quantity of capital, and $A$, $\alpha$, and $\beta$ are parameters.
+- **Variable cost** $VC$: materials, labour per unit — scales with quantity $Q$
 
-- The exponents $\alpha$ and $\beta$ are often between 0 and 1.
+- Total revenue: $TR = P \cdot Q$; Total cost: $TC = FC + VC \cdot Q$
 
-# Particularities of the Cobb-Douglas production function
+- The firm **breaks even** when it neither profits nor loses money: $TR = TC$
 
-- We cannot apply the properties of exponents directly to the Cobb-Douglas production function, since $L$ and $K$ are not the same base nor raised to the same power.
+# Application: break-even analysis
 
-- The exponents $\alpha$ and $\beta$ are often interpreted as the relative importance of labor and capital in the production process.
+- Set $TR = TC$ and solve for $Q$:
 
-- A numerical example: $Q = 2L^{0.5} K^{0.5}$.
+\begin{align*}
+P \cdot Q &= FC + VC \cdot Q \\
+P \cdot Q - VC \cdot Q &= FC \\
+(P - VC) \cdot Q &= FC \\
+Q^* &= \frac{FC}{P - VC}
+\end{align*}
 
-- Notice that fractional exponents are common in the Cobb-Douglas production function
-    - This means that we are essentially working with radicals
+- $(P - VC)$ is the **contribution margin**: how much each unit sold contributes toward covering fixed costs
 
-# Cobb-Douglas optimal input levels
+- Once $Q^*$ units are sold, every additional unit generates profit
 
-- Economic theory predicts that a firm under Cobb-Douglas technology (and other assumptions) will choose capital and labour in the following way:
+# Example: break-even analysis
 
-$$\frac{K}{L} = \frac{\beta w}{\alpha r}$$
+- A firm has monthly fixed costs of \$10,000, a variable cost of \$6 per unit, and sells at \$16 per unit
 
-where $w$ is the wage rate and $r$ is the rental rate of capital.
+$$Q^* = \frac{10{,}000}{16 - 6} = \frac{10{,}000}{10} = 1{,}000 \text{ units}$$
 
-# Example: Cobb-Douglas optimal input levels
+- The firm must sell 1,000 units per month to break even
 
-- With the knowledge that we have up to this point, we can solve for the optimal input levels of labor and capital in a Cobb-Douglas production function.
-
-- Suppose that a firm works under a Cobb-Douglas production function given by
-
-$$Q = 3L^{\alpha} K^{\beta}$$
-
-The relative importance of labor and capital is 30% and 70%, respectively. The wage is $w = 10$ and the rental rate of capital is $r = 20$.
-
-- For you: what are the optimal input levels of labor and capital?
-
-
-
+- For you: a bakery has monthly fixed costs of \$3,000, makes each cake for \$8, and sells it for \$20. How many cakes must they sell to break even?
 

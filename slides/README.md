@@ -9,7 +9,7 @@ This directory is organized as a small Quarto project.
 To render all slides from the repository root:
 
 ```powershell
-quarto render slides
+quarto render slides/src
 ```
 
 To render a single lecture:

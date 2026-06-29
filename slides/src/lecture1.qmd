@@ -84,13 +84,13 @@ $$ 4 \times 1 = 4$$
 
 # Thoughts
 
-- As useless this might be with numbers, it is crucial when working with variables
+- As useless as this might be with numbers, it is crucial when working with variables
     - E.g. What does $\lambda_1 (x_1 + x_2) \times \lambda_1 x_1 + x_2^2 (\tau \cdot \gamma)$ simplify to?
 
 -  Calculators typically don't work with variables
 
 - Not understanding PEMDAS may lead you to code the wrong formula in your software
-    - It is hard to debug this as it not a syntax error
+    - It is hard to debug this as it is not a syntax error
 
 # Variables and the greek alphabet
 
@@ -133,7 +133,7 @@ $$\text{Percentage} \% = \frac{\text{Part}}{\text{Whole}} \times 100 \% $$
 
 - You may be tempted to use the rule of three, but this is not necessary (it takes longer)
 
-- Use proportions to understand that 1 reprents the full price (the $75) and 0.25 represents the discount.
+- Use proportions to understand that 1 represents the full price (the $75) and 0.25 represents the discount.
 
 $$ \$75 \cdot (1 - 0.25) = \$75 \cdot 0.75 = \$56.25$$
 
@@ -153,7 +153,9 @@ $$ \$75 \cdot (1 - 0.25) = \$75 \cdot 0.75 = \$56.25$$
 
 - The formula for percentage change is
 
-$$ \Delta \% = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \% = \frac{x_1 - x_0}{x_0}\times 100 $$
+$$ \Delta = \frac{\text{New} - \text{Old}}{\text{Old}} = \frac{x_1 - x_0}{x_0} $$
+
+- This gives a **proportion** (e.g. 0.10 for a 10% raise). Multiply by 100 to get the familiar percentage figure (e.g. 10%)
 
 - A shorthand for this is dividing the final value by the initial value and subtracting 1
     - A negative value means a decrease, a positive value means an increase
@@ -164,9 +166,9 @@ $$ \Delta \% = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \% = \frac{
 
 - Typically, one would calculate 10% of \$46,000 and add it to the original value.
 
-$$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
+$$ x_0 + (x_0 \cdot \Delta) = x_1 $$
 
-- It is faster to represent $\Delta\%$ as a proportion, add it to 1, and multiply by the original value (1 + 0.10 = 1.10)
+- It is faster to add $\Delta$ to 1 and multiply by the original value (1 + 0.10 = 1.10)
 
 - Doing this is a simplification from the formula above
 
@@ -186,7 +188,7 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 # An exercise for you
 
-- Example: A coffee drink in Toronto costs CAD 3.50 after a 15% sales tax. How much tax is the consumer paying?
+- Example: A coffee drink in Toronto costs \$3.50 (CAD) after a 15% sales tax. How much tax is the consumer paying?
 
 # Solution
 
@@ -212,21 +214,21 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 # Ratios
 
-- You can work out the the relationship from one part to the whole by adding the parts of the ratio.
+- You can work out the relationship from one part to the whole by adding the parts of the ratio.
     - This may or may not make sense depending on the context
 
 - With a ratio of 1:2 for R&D and marketing, the whole is 3 parts, but this is not meaningful on its own
 
 - However, if you're told that in a hospital the ratio of doctors to nurses is 1:2, then doctors are 1/3 of the whole staff
 
-# Application: sales tax changes and percentage change interpretations
+# Application: market share and percentage change interpretations
 
-- Suppose a sales tax rate rises from 12% to 15%
+- Suppose Company A's market share rises from 12% to 15% in a quarter
 
-- Question for you: which the following statements is correct?
-    1. There was a 3 percentage point increase in the sales tax rate
-    2. There was a 25% increase in the sales tax rate
-    3. There was a 15% increase in the sales tax rate
+- Question for you: which of the following statements is correct?
+    1. Market share increased by 3 percentage points
+    2. Market share increased by 25%
+    3. Market share increased by 15%
 
 # Percentage points and percent changes
 
@@ -238,7 +240,7 @@ $$ x_0 + (x_0 \cdot \Delta\%) = x_1 $$
 
 - Both statements 1 and 2 are correct; they measure the same change in different ways
 
-- Statement 3 is wrong — $15\%$ is the new rate, not the change
+- Statement 3 is wrong — $15\%$ is the new market share, not the change
 
 # Equations 
 
