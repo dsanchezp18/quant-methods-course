@@ -20,7 +20,7 @@ include-in-header:
 
 - The set of real numbers is denoted by $\mathbb{R}$.
 
-![Real numbers. Source: Lamar State College](../assets/img/real_numbers.png){height=80%}
+![Real numbers. Source: Lamar State College](assets/img/real_numbers.png){height=80%}
 
 # Summation
 
