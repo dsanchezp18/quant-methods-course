@@ -1,8 +1,7 @@
 ---
 title: Final Exam
-subtitle: Math for the Social Sciences
-institute: Laboratorio de Investigación para el Desarrollo del Ecuador
-author: "Young Researchers Fellowship"
+subtitle: Quantitative Methods for Business
+author: Daniel Sánchez Pazmiño
 date: 2024-08-29
 format: pdf
 include-in-header:

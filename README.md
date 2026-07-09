@@ -1,5 +1,5 @@
-# Math for the Social Sciences
+# Quantitative Methods for Business
 
-This repository contains the materials for the course "Math for the Social Sciences" at Laboratorio LIDE's Young Researchers Fellowship Program.
+This repository contains the materials for the course "Quantitative Methods for Business".
 
 Instructor: Daniel Sánchez Pazmiño.

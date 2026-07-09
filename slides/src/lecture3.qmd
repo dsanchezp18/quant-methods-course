@@ -2,7 +2,7 @@
 title: Quantitative Methods for Business and Economics
 subtitle: Lecture 3 - Equation Systems and Graphing
 author: Daniel Sánchez Pazmiño
-date: 2024-01-01
+date: 2026-01-01
 theme: berlin
 date-format: "YYYY"
 format: beamer
@@ -18,7 +18,7 @@ include-in-header:
 
 # Equation systems
 
-- A set of of equations that share the same variables is called an *equation system*.
+- A set of equations that share the same variables is called an *equation system*.
 
 - For example:
 
@@ -94,8 +94,8 @@ $$2x - (3 - x) = 1$$
         clip=false
     ]
     \node at (axis cs: -4.5, 4.5) {II};
-    \node at (axis cs: -4.5, -4.5) {IV};
-    \node at (axis cs: 4.5, -4.5) {III};
+    \node at (axis cs: -4.5, -4.5) {III};
+    \node at (axis cs: 4.5, -4.5) {IV};
     \node at (axis cs: 4.5, 4.5) {I};
     \end{axis}
 \end{tikzpicture}
@@ -255,7 +255,7 @@ $x$ & $y$ \\
 - If $m = 0$, the line is horizontal.
     - $y$ does not change as $x$ changes.
 
-- If $m = \infty$, the line is vertical.
+- If the slope is undefined (division by zero in the slope formula), the line is vertical.
     - $x$ does not change as $y$ changes.
 
 - If $m = 1$, the line has a 45-degree angle.
@@ -431,7 +431,7 @@ x + y &= 3 \\
 - The vertex of the parabola is given by $x = -\dfrac{b}{2a}$.
     - This is where the parabola reaches its maximum or minimum.
     - The vertex is the point where the parabola changes direction.
-    - It has coordinates $\dfrac{-b}{2a}, f\left(\dfrac{-b}{2a}\right)$.
+    - It has coordinates $\left(\dfrac{-b}{2a}, f\left(\dfrac{-b}{2a}\right)\right)$.
 
 - The parabola opens upwards if $a > 0$ and downwards if $a < 0$.
 
@@ -450,9 +450,9 @@ x + y &= 3 \\
 
 - Ultimately, might need to use a table of values to plot the parabola.
 
-# Concave parabola
+# Convex parabola
 
-- A parabola that opens upwards is called *concave*.
+- A parabola that opens upwards is called *convex*.
     - It has a minimum at the vertex.
 
 \begin{figure}
@@ -476,13 +476,13 @@ x + y &= 3 \\
 {x^2};
 \end{axis}
 \end{tikzpicture}
-\caption{Concave parabola}
+\caption{Convex parabola}
 
 \end{figure}
 
-# Convex parabola
+# Concave parabola
 
-- A parabola that opens downwards is called *convex*.
+- A parabola that opens downwards is called *concave*.
     - It has a maximum at the vertex.
 
 \begin{figure}
@@ -506,7 +506,7 @@ x + y &= 3 \\
 {-x^2};
 \end{axis}
 \end{tikzpicture}
-\caption{Convex parabola}
+\caption{Concave parabola}
 \end{figure}
 
 # Cubic equations/functions
@@ -514,9 +514,9 @@ x + y &= 3 \\
 - Cubic equations are equations of the form $y = ax^3 + bx^2 + cx + d$.
     - They represent cubic functions in the Cartesian plane.
 
-- The graph of a cubic function is a curve that can have multiple inflection points.
+- The graph of a cubic function is a curve with an inflection point.
 
-- The inflection points are points where the curve changes concavity.
+- An inflection point is a point where the curve changes concavity.
     - Convex to concave or vice versa.
 
 # Graph of a cubic function
@@ -544,3 +544,44 @@ x + y &= 3 \\
 \end{tikzpicture}
 \caption{Graph of $x^3$}
 \end{figure}
+
+# Application: comparing cost structures
+
+- A firm needs machinery and can rent from two suppliers:
+    - **Supplier A**: \$2,000 flat fee plus \$50 per hour of use
+    - **Supplier B**: \$500 flat fee plus \$80 per hour of use
+
+- Write each total cost as a linear equation in hours of use $h$:
+
+\begin{align*}
+C_A &= 2{,}000 + 50h \\
+C_B &= 500 + 80h
+\end{align*}
+
+- Which supplier is cheaper depends on how many hours the firm needs
+
+- The two cost lines intersect at the **indifference point**: the usage level where both suppliers cost the same
+
+# Application: comparing cost structures
+
+- Set $C_A = C_B$ and solve the system:
+
+\begin{align*}
+2{,}000 + 50h &= 500 + 80h \\
+1{,}500 &= 30h \\
+h^* &= 50 \text{ hours}
+\end{align*}
+
+- Below 50 hours, Supplier B is cheaper (lower flat fee)
+
+- Above 50 hours, Supplier A is cheaper (lower hourly rate)
+
+- Graphically, this is exactly the intersection of two lines — the same equation systems we solved earlier
+
+# Example: comparing cost structures
+
+- For you: a gym charges a \$30 flat monthly fee. A second gym charges a \$10 monthly fee plus \$2 per visit.
+
+- How many visits per month make both gyms equally costly?
+
+- Which gym should a member who visits 8 times per month choose?
