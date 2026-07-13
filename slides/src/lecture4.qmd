@@ -1,8 +1,8 @@
 ---
 title: Quantitative Methods for Business and Economics
-subtitle: Lecture 4 - Logarithms and related topics
+subtitle: Lecture 4 - Logarithms and Related Topics
 author: Daniel Sánchez Pazmiño
-date: 2024-01-01
+date: 2026-01-01
 theme: berlin
 date-format: "YYYY"
 fig-width: 8
@@ -65,11 +65,11 @@ $$\log_b(x) = y \iff b^y = x$$
 
 - $\log_{10}(1000) = \log_{10}(10^3) = 3 \log_{10}(10) = 3$
 
-- $\log_{10}(1000) = \log_{2}(1000) \dfrac{\log_{2}(1000)}{\log_{2}(10)} = 3$
+- $\log_{10}(1000) = \dfrac{\log_{2}(1000)}{\log_{2}(10)} = 3$
 
 # Logarithms are our friends!
 
-- As icky as they might seem, logarithms are our friends **because of their properties**.
+- As tricky as they might seem, logarithms are our friends **because of their properties**.
 
 - When dealing with variable exponentials, logarithms can help us simplify the problem.
     - Use the power rule to bring down the exponent.
@@ -114,7 +114,7 @@ $$\log_2(2^x) = \log_2(8)$$
 
 # Exponential growth
 
-- Exponential growth is a process that increases at a constant rate over time.
+- Exponential growth is a process that increases at a constant percentage rate over time.
 
 - It is characterized by a constant percentage growth rate.
 
@@ -150,15 +150,15 @@ $$\log_2(2^x) = \log_2(8)$$
 
 - Logarithmic scales are used when there is a large range of values.
     - They compress the scale to make it easier to read.
-    - Often allow to observe trends that would be hidden in a natural scale.
+    - They often help us observe trends that would be hidden on a regular scale.
 
 - Commonly, the y-axis is in logarithmic scale.
-    - A base 10 and a natural logarithm scale are the most common.
+    - Base 10 and natural logarithmic scales are the most common.
 
 # Base 10 logarithmic scale
 
 - The base 10 logarithmic scale is used whenever the data is very large
-    - It should work well with a non-log scale that is a power of 10, i.e., 10, 100, 1000, etc.
+    - It works especially well when values span powers of 10, i.e., 10, 100, 1000, etc.
 
 - The scale compresses the data to make it easier to read.
 
@@ -207,11 +207,11 @@ gridExtra::grid.arrange(base_10, natural, ncol = 2)
 
 # Natural logarithmic scale
 
-- The natural logarithmic scale is often used when the data shows a exponential or percent growth pattern.
+- The natural logarithmic scale is often used when the data shows an exponential or percentage growth pattern.
 
-- Powers of $e$ are used to interpret the values in the scale, but this can be approximated to percentages. 
+- Powers of $e$ are used to interpret the values in the scale, and these are closely related to continuous percentage growth. 
 
-- If a variable grows exponentially, the trend will not be linear, however, in a natural logarithmic scale, it will look linear.
+- If a variable grows exponentially, the trend will not look linear on a regular scale; however, on a natural logarithmic scale, it will look linear.
 
 - Often used in economics, biology, and other fields where exponential growth is common.
 
@@ -242,7 +242,7 @@ data <- data.frame(x = 1:10, y = exp(seq(1, 10, by = 1)))
 natural_log <-
   ggplot(data, aes(x = x, y = y)) +
   geom_line() +
-  scale_y_log10() +
+  scale_y_continuous(trans = scales::log_trans(base = exp(1))) +
   labs(y = "Natural logarithmic scale",
        title = "Natural logarithmic scale")
 
@@ -260,11 +260,11 @@ gridExtra::grid.arrange(natural_log, natural, ncol = 2)
 
 - The assumption of linearity in the social sciences comes up often
 
-- This would mean forcing real world data of, say, population, to fit a constant increase of certain people per year.
+- This would mean forcing real-world data such as population to fit a constant increase in the number of people per year.
 
 - This is not realistic, as populations rarely grow in this way.
 
-- Assuming that at a certain point, the population will grow at a constant *percentage* rate is more realistic.
+- Assuming that, at least over some periods, the population will grow at a constant *percentage* rate is often more realistic.
 
-- Sticking a natural logarithm on the data will make it "log-linear", which makes the linearity assumption more realistic.
-    - This way we evade using complex statistical models!
+- Applying a natural logarithm to the data can make the relationship "log-linear", which makes the linearity assumption more realistic.
+    - This is one reason $\ln(x)$ appears so often in applied economics and the social sciences.
