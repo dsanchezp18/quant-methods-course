@@ -74,11 +74,11 @@ $$\log_b(x) = y \iff b^y = x$$
 - When dealing with variable exponentials, logarithms can help us simplify the problem.
     - Use the power rule to bring down the exponent.
 
-- Natural logarithms are particularly useful for the social sciences.
-    - They are used in growth models because of the Euler's number relationship to percent growth.
+- Natural logarithms are particularly useful in economics, business, and finance.
+    - They are used in growth models because of Euler's number relationship to percent growth.
 
 - Exponential growth shows up in real life in many ways.
-    - Population growth, compound interest, and the spread of diseases are all examples of exponential growth.
+    - Compound interest, sales growth, and customer growth can all follow exponential patterns.
     - Logarithms are tools to deal with these phenomena.
 
 # Logarithmic equations
@@ -118,33 +118,55 @@ $$\log_2(2^x) = \log_2(8)$$
 
 - It is characterized by a constant percentage growth rate.
 
-- Exponential growth is often used to model population growth, compound interest, and the spread of diseases.
+- Exponential growth is often used to model compound interest, sales growth, and investment balances.
 
 - The formula for exponential growth is $y = a(1 + r)^t$.
 
 # Example
 
-- A population of 1000 people grows at a rate of 5% per year.
+- Suppose \$1,000 is invested at an annual interest rate of 5%.
 
-- The population after 10 years is given by the formula $y = 1000(1 + 0.05)^{10}$.
+- The value of the investment after 10 years is given by the formula $y = 1000(1 + 0.05)^{10}$.
 
-- The population after 10 years is $1000(1.05)^{10} = 1628.89$.
+- The value of the investment after 10 years is $1000(1.05)^{10} = 1628.89$.
 
 # Example
 
-- In some cases, we might want to know how long it will take for a population to reach a certain size.
+- In some cases, we might want to know how long it will take for an investment to reach a target value.
 
-- For example, how long will it take for a population to double if it is growing at a rate of 5% per year?
+- For example, how long will it take for an investment to double if it grows at a rate of 5% per year?
 
 - We can use the formula $y = a(1 + r)^t$ and solve for $t$.
 
-- If the population doubles, then $2a = a(1 + r)^t$.
+- If the investment doubles, then $2a = a(1 + r)^t$.
 
 - Therefore, $2 = (1 + 0.05)^t$.
 
 - Taking the logarithm of both sides, we get $\log(2) = t \log(1.05)$.
 
 - Therefore, $t = \dfrac{\log(2)}{\log(1.05)} \approx 14.21$ years.
+
+# Example: continuous growth
+
+- In finance, growth is sometimes modeled as *continuous* rather than annual or monthly.
+
+- A simple continuous-growth formula is
+
+$$y = ae^{rt}$$
+
+- Suppose \$1,000 grows continuously at a rate of 5% per year.
+
+- After 10 years, the value is
+
+$$y = 1000e^{0.05 \cdot 10} = 1000e^{0.5} \approx 1648.72$$
+
+- If we want to know when the investment doubles, set $2a = ae^{0.05t}$.
+
+- Then $2 = e^{0.05t}$, so taking natural logarithms gives
+
+$$\ln(2) = 0.05t$$
+
+- Therefore, $t = \dfrac{\ln(2)}{0.05} \approx 13.86$ years.
 
 # Logarithmic scaling
 
@@ -260,11 +282,11 @@ gridExtra::grid.arrange(natural_log, natural, ncol = 2)
 
 - The assumption of linearity in the social sciences comes up often
 
-- This would mean forcing real-world data such as population to fit a constant increase in the number of people per year.
+- This would mean forcing real-world data such as firm sales or prices to fit a constant increase in dollars each period.
 
-- This is not realistic, as populations rarely grow in this way.
+- This is not always realistic, because many business variables grow by percentages rather than by fixed amounts.
 
-- Assuming that, at least over some periods, the population will grow at a constant *percentage* rate is often more realistic.
+- Assuming that, at least over some periods, sales or asset values grow at a constant *percentage* rate is often more realistic.
 
 - Applying a natural logarithm to the data can make the relationship "log-linear", which makes the linearity assumption more realistic.
     - This is one reason $\ln(x)$ appears so often in applied economics and the social sciences.
