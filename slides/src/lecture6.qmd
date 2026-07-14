@@ -2,7 +2,7 @@
 title: Quantitative Methods for Business and Economics
 subtitle: Lecture 6 - Single Variable Calculus & Optimization
 author: Daniel Sánchez Pazmiño
-date: 2024-01-01
+date: 2026-01-01
 theme: berlin
 date-format: "YYYY"
 format: beamer
@@ -30,7 +30,7 @@ include-in-header:
 
 - Single variable calculus deals with functions of one variable.
 
-- Functions of one variable are functions that take a single input and produce a single output. This is usually denoted as:
+- Functions of one variable take a single input and produce a single output. This is usually denoted as:
 
 $$f: \mathbb{R} \to \mathbb{R}$$
 
@@ -42,7 +42,7 @@ $$f: \mathbb{R} \to \mathbb{R}$$
 
 - The rate of change of a function $f(x)$ at a point $x = a$ represents how much the function changes as $x$ changes by a small amount $\Delta x$ around $a$. 
 
-- The concept of slope is crucial to understand rates of change, as it is the ratio of the change in $y$ to the change in $x$.
+- The concept of slope is crucial for understanding rates of change, as it is the ratio of the change in $y$ to the change in $x$.
 
 - The slope is not constant for all functions. It can change depending on the point at which it is calculated.
 
@@ -111,9 +111,9 @@ $$f: \mathbb{R} \to \mathbb{R}$$
 
 - Limits are a fundamental concept in calculus. They are used to define derivatives, integrals, and many other concepts in calculus.
 
-- Limits are an operator which gives the value that a function **approaches** as the input approaches a certain value. It makes sense to think of them as the value that a function gets closer and closer to as the input gets closer and closer to a certain value.
+- A limit is an operator that gives the value a function **approaches** as the input approaches a certain value. It helps to think of it as the value the function gets closer and closer to.
 
-- There are many rules and properties of limits that are used to calculate them. We will not cover them in this lecture, but they are crucial to understand calculus, and you should review them if you want to learn more about calculus.
+- There are many rules and properties of limits that are used to calculate them. We will not cover them in this lecture, but they are crucial for a deeper understanding of calculus.
 
 # The Derivative of a Function
 
@@ -185,7 +185,7 @@ $$f'(x) = (x^2)' + (3x)' = 2x + 3$$
 
 # Example: Derivative of a product
 
-- Let's calculate the derivative of the function $f(x) = x^2 \cdot \sqrt(x)$
+- Let's calculate the derivative of the function $f(x) = x^2 \cdot \sqrt{x}$.
 
 - Using the product rule and the power rule, we have:
 $$f'(x) = (x^2)' \cdot \sqrt(x) + x^2 \cdot (\sqrt(x))'$$
@@ -209,31 +209,35 @@ $$f'(x) = 6x(x^2 + 1)^2$$
 
 - In many fields, the derivative of a function has a special meaning.
 
-- The concept of **margin** is crucial in many fields, denoting the **additional** or **incremental** change in a quantity, given a small change in another quantity.
+- The concept of **margin** is crucial in economics and business, denoting the **additional** or **incremental** change in a quantity given a small change in another quantity.
 
 - The derivative of a function represents the marginal change in the function with respect to the input.
 
 - Marginal products, marginal costs, marginal revenues, and marginal utilities are all examples of marginal quantities that are calculated using derivatives.
 
-# Example: marginal products
+# Example: marginal profit
 
-Consider the Cobb-Douglas production function:
+Suppose a car dealership's profit function is
 
-$$Q = L^{0.3}K^{0.7}$$
+$$\Pi(q) = 200q - q^2$$
 
-with $L$ representing labor and $K$ representing capital, and with $Q$ representing output. In the short run, capital is fixed at $K = 100$.
+where $q$ is the number of cars sold.
 
-# Example: marginal products
+# Example: marginal profit
 
-What is the marginal product of labor? This means we need to calculate the derivative of the production function with respect to labor.
+What is the marginal profit? This means we need to calculate the derivative of profit with respect to the number of cars sold:
 
-First, we need to substitute $K = 100$ into the production function:
+$$\dfrac{d\Pi}{dq} = 200 - 2q$$
 
-$$Q = L^{0.3}100^{0.7} = 100^{0.7}L^{0.3}$$
+- This derivative is the **marginal profit** function.
 
-Now, we can calculate the derivative of $Q$ with respect to $L$:
+- It tells us approximately how much profit changes when the dealership sells one more car.
 
-$$\dfrac{dQ}{dL} = 0.3 \cdot 100^{0.7}L^{-0.7} = 0.3 \cdot 100^{0.7}L^{-0.7}$$
+- For example, at $q = 50$,
+
+$$MP(50) = 200 - 2(50) = 100$$
+
+- So near 50 cars sold, one additional car raises profit by about \$100.
 
 # Single variable optimization
 
@@ -251,10 +255,10 @@ $$\dfrac{dQ}{dL} = 0.3 \cdot 100^{0.7}L^{-0.7} = 0.3 \cdot 100^{0.7}L^{-0.7}$$
 
 - Critical points are points at which the derivative of a function is zero or undefined.
 
-- Critical points are important because they can be local maxima, local minima, or saddle points.
+- Critical points are important because they can be local maxima, local minima, or neither.
     - Local maxima are points where the function reaches a maximum value in a small neighborhood.
     - Local minima are points where the function reaches a minimum value in a small neighborhood.
-    - Saddle points are points where the function is neither a maximum nor a minimum.
+    - Some critical points are neither a maximum nor a minimum.
 
 - To find the critical points of a function, we need to find the values of $x$ for which $f'(x) = 0$ or $f'(x)$ is undefined.
 
@@ -290,9 +294,9 @@ $$x = 1 \pm \dfrac{\sqrt{3}}{3}$$
 
 - To determine whether these points are local maxima, local minima, or saddle points, we need to analyze the behavior of the function around these points.
 
-- There are four ways to do this:
+- There are several ways to do this:
     - Use the second derivative test (we will cover this later)
-    - Look at the chart of the function around the critical points.
+    - Look at the graph of the function around the critical points.
 
 # Example: Finding critical points
 
@@ -439,13 +443,13 @@ $$f''(1 - \dfrac{\sqrt{3}}{3}) = 6(1 - \dfrac{\sqrt{3}}{3}) - 6 = 6 - 2\sqrt{3} 
 
 # Maximization and minimization
 
-- We are interested in maximizing as social scientists when functions exhibit the existence of at least a local maximum (minimum for minimization).
+- We are interested in maximization when functions exhibit at least a local maximum, and in minimization when they exhibit at least a local minimum.
 
-- Whether a function has existing maxima or minima is a question of interest in many fields, and has to do with the shape of the function and the behavior of its derivatives.
+- Whether a function has maxima or minima is a question of interest in many fields, and it depends on the shape of the function and the behavior of its derivatives.
 
 - We often talk about concavity and convexity of functions to determine whether they have maxima or minima. 
 
-- As a "rough" rule, if a function is concave up, it has a minimum, and if it is concave down, it has a maximum. 
+- As a rough rule, if a function is concave up, it tends to have a minimum, and if it is concave down, it tends to have a maximum. 
 
 # Concavity and convexity - graphical intuition
 
@@ -488,9 +492,9 @@ $$f''(1 - \dfrac{\sqrt{3}}{3}) = 6(1 - \dfrac{\sqrt{3}}{3}) - 6 = 6 - 2\sqrt{3} 
 # Optimization notation
 
 - A real world example of optimization is maximizing or minimizing a function that represents a quantity of interest.
-    - For example, a government may want to maximize public welfare given a certain budget amount.
-    - Firms want to maximize profits.
-    - An epidemiologist may want to minimize the spread of a disease.
+    - For example, a government may want to maximize public welfare given a certain budget.
+    - A firm may want to maximize profit or minimize cost.
+    - An investor may want to choose the scale of an investment to maximize returns net of cost.
 
 - In all these cases, optimization involves finding the maximum or minimum value of a function.  This is done by finding the critical points of the function and analyzing their behavior.
 

@@ -1,0 +1,107 @@
+---
+title: "Quantitative Methods for Business and Economics"
+subtitle: "Current Syllabus Outline"
+author: "Daniel Sánchez Pazmiño"
+date: 2026-01-01
+date-format: "YYYY"
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=1in
+    number-sections: false
+fontsize: 11pt
+---
+
+# Course description
+
+This course introduces the mathematical tools most commonly used in business, economics, and related applied social-science settings. The emphasis is on understanding how mathematical expressions represent real-world relationships, and on using those tools to solve practical problems involving growth, comparison, graphing, and optimization.
+
+The course begins with algebraic foundations, then develops equation systems and graphical reasoning, followed by logarithms and growth models, and concludes this current portion with an introduction to single-variable calculus and optimization.
+
+# Learning goals
+
+By the end of this portion of the course, students should be able to:
+
+- work confidently with algebraic expressions, percentages, ratios, and equations;
+- interpret and graph linear, quadratic, and simple nonlinear relationships;
+- solve systems of equations and explain their graphical meaning;
+- use logarithms to solve exponential-growth problems and interpret log scales;
+- understand derivatives as rates of change and marginal effects;
+- apply basic optimization tools to simple business and economics examples.
+
+# Topics and sequence
+
+## Module 1. Foundations for quantitative reasoning
+
+- Order of operations
+- Variables and mathematical notation
+- Greek letters commonly used in quantitative work
+- Percentages, proportions, and percentage change
+- Ratios
+- Basic equations, functions, and inequalities
+
+## Module 2. Algebra for business and economics
+
+- Real numbers
+- Summation and sigma notation
+- Averages
+- Exponents and exponent rules
+- Radicals
+- Quadratic equations and roots
+- Absolute value
+
+## Module 3. Equation systems and graphing
+
+- Solving systems of equations
+- The Cartesian plane and plotting points
+- Linear equations, slope, and intercepts
+- Graphing lines and equation systems
+- Parallel lines, coincident lines, and no-solution cases
+- Quadratic and cubic functions
+
+## Module 4. Logarithms, growth, and scaling
+
+- Definition of logarithms
+- Properties of logarithms
+- Solving logarithmic and exponential equations
+- Exponential growth
+- Compound growth and doubling-time calculations
+- Continuous growth with $e$
+- Base-10 and natural-log scales
+- Interpretation of logarithmic transformations in business and economics
+
+## Module 5. Single-variable calculus and optimization
+
+- Rates of change and tangent lines
+- Derivatives and derivative notation
+- Power, sum, product, quotient, and chain rules
+- Marginal interpretation of derivatives
+- Critical points
+- Local maxima and minima
+- Second-derivative test
+- Introductory optimization notation
+
+# Representative course examples
+
+Examples used in this portion of the course include:
+
+- pricing, discounts, tax-inclusive prices, and percentage changes;
+- break-even style algebraic reasoning;
+- graphing supply-and-demand-type relationships;
+- compound interest and continuous growth;
+- marginal profit in a simple car-sales example;
+- optimization of a single-variable objective function.
+
+# Expected mathematical emphasis
+
+The course emphasizes intuition and interpretation alongside symbolic manipulation. Students are expected to:
+
+- show algebraic steps clearly;
+- connect formulas to graphs and economic meaning;
+- interpret rates of change and growth in plain language;
+- use mathematics as a tool for business and economics reasoning rather than as a purely abstract exercise.
+
+# Notes on current structure
+
+This syllabus reflects the current active course sequence based on the slide materials available in the repository up to the present calculus and optimization lecture.

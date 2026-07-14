@@ -2,7 +2,7 @@
 title: Quantitative Methods for Business and Economics
 subtitle: Lecture 5 - Modelling in the Social Sciences
 author: Daniel Sánchez Pazmiño
-date: 2024-01-01
+date: 2026-01-01
 theme: berlin
 date-format: "YYYY"
 format: beamer
@@ -26,7 +26,7 @@ include-in-header:
         - Details are irrelevant to the question we are asking.
         - It is easier to first understand the simple situation, then extend.
 
-- A quantitative model is a model that is a model that uses quantitative information (numbers, equations, etc) to represent the real-world system.
+- A quantitative model uses quantitative information (numbers, equations, etc.) to represent a real-world system.
         - We can later use this model to make predictions and test hypotheses.
         - Data can be used to validate or invalidate the model.
         - Public policy decisions can be made based on the model.
@@ -53,7 +53,7 @@ include-in-header:
 - **Variables**: Represent the quantities that **change** in the model.
 
 - Sometimes whether something in the model changes might not be obvious
-        - Depends in the context of the model.
+        - Depends on the context of the model.
         - Depends on the question we are asking i.e. the focus of the model.
         - Depends on the **assumptions** we make.
 
@@ -100,7 +100,7 @@ include-in-header:
     - This assumption allows us to derive the supply and demand curves.
     - This assumption allows us to derive the equilibrium price and quantity.
 
-- If we relax the assumption of perfect competition typically changes the conclusions of the model.
+- If we relax the assumption of perfect competition, the conclusions of the model typically change.
     - E.g. Monopoly: Higher prices, lower quantities, lower consumer surplus.
 
 # The parts of a model: parameters
@@ -111,7 +111,7 @@ include-in-header:
     - They are the values that we can estimate from data.
     
 - Parameters are used to represent values of the model which do not vary.
-    - We typically do not know the values of the parameters, but may have an idea of their range (i.e. positive or negative.)
+    - We typically do not know the values of the parameters, but may have an idea of their range (i.e. positive or negative).
     - Sometimes, we make simplifying assumptions about parameters (i.e. assume unitary elasticity).
 
 # Example: Demand curve estimation
@@ -143,8 +143,8 @@ $$ \text{Elasticity of Y with respect to X} =  \dfrac{ \% \Delta Y}{ \% \Delta X
     - For example, if the price elasticity of demand for cigarettes is high, then a tax increase will reduce consumption.
     - If the elasticity of intergenerational mobility is low, then policies to increase mobility are needed.
 
-- Having estimated a value of elasticity (i.e. 20%), we multiply it times the change we believe something exert on the $X$ variable to get the change in the $Y$ variable we'd expect.
-    - Not always the elasticity is linear, but it is an approximation.
+- If we estimate an elasticity of 0.20, we multiply it by the percentage change we expect in $X$ to approximate the percentage change in $Y$.
+    - Elasticities do not always behave perfectly linearly, but they are often a useful approximation.
 
 # Equilibrium
 
@@ -187,7 +187,7 @@ $$ \text{Elasticity of Y with respect to X} =  \dfrac{ \% \Delta Y}{ \% \Delta X
 - **Dependent variables**: Variables that are affected by other variables in the model, generally the *independent* variables.
 
 - In the social sciences, where we rely on observational rather than experimental studies, I argue that these are not the best terms to use.
-    - Independent variables, while are often exogenous, are not always under our control or might be indirectly affected by other variables.
+    - Independent variables, while often exogenous, are not always under our control or may be indirectly affected by other variables.
     - Observational studies need to apply sophisticated techniques to control for confounding variables.
 
 # Explanatory and explained variables
@@ -208,7 +208,7 @@ $$ \text{Elasticity of Y with respect to X} =  \dfrac{ \% \Delta Y}{ \% \Delta X
 
 - **Functions**: A relationship between variables.
 
-- In an estimation context, we hear function a lot. For example, the demand function, the supply function, the production function, the utility function, etc.
+- In an estimation context, we hear the word function a lot. For example, the demand function, the supply function, the production function, and the utility function.
     - These are relationships between variables that we can estimate from data.
     - These are relationships that we can use to make predictions.
 
@@ -217,7 +217,7 @@ $$ \text{Elasticity of Y with respect to X} =  \dfrac{ \% \Delta Y}{ \% \Delta X
 - For example:
     - The demand function: $Q = a + bP$
     - The production function: $Q = f(K,L)$
-    - The popularity function (presidential approval)
+    - A sales function relating advertising to revenue
 
 # Identities
 
@@ -233,7 +233,7 @@ $$ \text{Elasticity of Y with respect to X} =  \dfrac{ \% \Delta Y}{ \% \Delta X
 
 # Functional form
 
-- **Functional form**: The way that a function is written, referring often to the polinoimial degree of the function or the type of function.
+- **Functional form**: The way that a function is written, often referring to its polynomial degree or general type.
 
 - The functional form of a function is important because it determines the shape of the relationship between variables.
     - For example, a linear function has a different shape than a quadratic function.
@@ -247,14 +247,14 @@ $$ \text{Elasticity of Y with respect to X} =  \dfrac{ \% \Delta Y}{ \% \Delta X
 - Structural estimation means taking the model very seriously, and estimating the parameters of the model directly.
     - For example, estimating the parameters of the supply and demand model directly from data.
     - This is often difficult because the model is complex and the parameters are hard to estimate.
-    - Requires a lot of strong math skills and often advanced statistical techniques.
+    - It often requires stronger mathematical assumptions and more advanced statistical techniques.
 
 # Reduced form vs. structural estimation of models
 
 - Reduced form estimation means estimating the parameters of the model indirectly, by estimating the relationship between the variables.
     - For example, estimating the price elasticity of demand from data.
     - This is often easier because the model is simpler and the parameters are easier to estimate.
-    - Requires less math skills and often simpler statistical techniques.
+    - It usually requires less mathematics and simpler statistical techniques.
 
 - Both approaches have their advantages and disadvantages, and are often used together in empirical work.
 
