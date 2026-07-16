@@ -142,6 +142,10 @@ $$\log_2(2^x) = \log_2(8)$$
 
 - Therefore, $2 = (1 + 0.05)^t$.
 
+# Example
+
+- To solve for $t$, take the logarithm of both sides:
+
 - Taking the logarithm of both sides, we get $\log(2) = t \log(1.05)$.
 
 - Therefore, $t = \dfrac{\log(2)}{\log(1.05)} \approx 14.21$ years.

@@ -304,25 +304,3 @@ b. $(2,0)$
 c. $(2,0.5)$
 
 d. None of the above
-
-21\. A matrix $A_{2x2}$ and a vector $b_{2x1}$ were multiplied. A student claims that the result is a vector.
-
-a. True
-
-b. False
-
-c. Cannot be determined
-
-d. None of the above
-
-22\. The inverse of matrix $A_{2x2}$ below is:
-
-$$A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 3 & 4 \end{bmatrix}$$
-
-a. $\begin{bmatrix} 1 & 3 & 3 \\ 2 & 4 & 4 \end{bmatrix}$
-
-b. $\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$
-
-c. $\begin{bmatrix} 1 & 2 \\ 6 & 4 \end{bmatrix}$
-
-d. None of the above

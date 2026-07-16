@@ -1,6 +1,5 @@
 \documentclass{article}
 \usepackage{amsmath}
-\usepackage{biblatex} % Must have this line so that project compiles in VS Code
 \usepackage{enumitem}
 \title{Quantitative Methods for Business \\[1em] \large Extra Assignment}
 \date{\today}
@@ -19,7 +18,7 @@
     \item[(c)] $f(x, y, z) = x^2 + 6xy + y^2 - 3yz + 4z^2 - 10x - 5y - 21z$
 \end{itemize}
 
-\textit{Note}: The Hessian is the matrix of second partial derivatives, as follows:
+\textit{Note}: The Hessian collects the second partial derivatives, as follows:
 
 \[
 H = \begin{bmatrix}
@@ -27,25 +26,6 @@ H = \begin{bmatrix}
     \dfrac{\partial^2 f}{\partial y \partial x} & \dfrac{\partial^2 f}{\partial y^2}
 \end{bmatrix}
 \]
-
-
-\begin{enumerate}[resume]
-    \item Find the matrix product $AB$ of
-\end{enumerate}
-    \[
-A = \begin{bmatrix} 1 & 1 & 3 \\ 2 & -4 & 0 \end{bmatrix} \quad \text{and} \quad B = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 0 \end{bmatrix}.
-\]
-Then find the product $BB'$.
-
-\begin{enumerate}[resume]
-    \item For matrix $B$ above:
-    \begin{enumerate}
-        \item Find the determinant of $B$ (show all steps and do research on how to calculate the determinant of a 3x3 matrix, if needed).
-        \item Find the inverse of $B$, using a computer program or calculator.
-        \item Perform the hand calculation of $B^{-1}B$, to verify that the result is the identity matrix I.
-        \item Can you extend the results for matrix $A$ above? Why or why not? Clearly explain.
-    \end{enumerate}
-\end{enumerate}
 
 \begin{enumerate}[resume]
     \item Consider the function $f(x) = - \dfrac{x^3}{3} + x^2 - x +4$.
@@ -75,8 +55,6 @@ Then find the product $BB'$.
     where $y_i$ is the actual value of the dependent variable, $\hat{y}_i$ is the predicted value of the dependent variable, and $n$ is the number of observations.
 \begin{enumerate}
     \item Using properties of sums, show that the sum of squared errors can be expressed as $$SSE = \sum_{i=1}^{n} y_i^2 - 2\sum_{i=1}^{n} y_i\hat{y}_i + \sum_{i=1}^{n} \hat{y}_i^2$$
-    \item Consider now $y$ as a vector of actual values and $\hat{y}$ as a vector of predicted values. Show that the sum of squared errors can be expressed as $$SSE = y'y - 2y'\hat{y} + \hat{y}'\hat{y}$$, starting from the vector equivalent of the sum of squared errors, $$SSE = y-\hat{y}'(y-\hat{y})$$. Use properties of matrices and vector as needed.
-    \item In the equation above, substitute $y = X\beta + \epsilon$, where $X$ is the matrix of independent variables, and $\beta$ and $\epsilon$ are vectors. Show that the sum of squared errors can be expressed as $$SSE = \epsilon'\epsilon$$
 \end{enumerate}
 \end{enumerate}
 

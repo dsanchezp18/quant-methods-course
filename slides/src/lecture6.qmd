@@ -1,6 +1,6 @@
 ---
 title: Quantitative Methods for Business and Economics
-subtitle: Lecture 6 - Single Variable Calculus & Optimization
+subtitle: Lecture 5 - Single Variable Calculus & Optimization
 author: Daniel Sánchez Pazmiño
 date: 2026-01-01
 theme: berlin

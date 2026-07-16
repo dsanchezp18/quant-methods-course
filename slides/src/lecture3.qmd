@@ -37,7 +37,6 @@ x + y &= 3 \\
     - Substitution
     - Elimination
     - Graphing
-    - Matrices (we will see this later)
 
 - Substitution is typically the most "mechanical" method.
     - Express one variable in terms of the other and substitute in the other equation.
@@ -418,7 +417,6 @@ x + y &= 3 \\
     - Elimination
     - Substitution
     - Graphing
-    - Matrices (typically used for larger systems)
 
 - For graphing, we need to consider more dimensions.
     - For a system of three equations in three variables, we need a three-dimensional space (3D), with $x$, $y$, and $z$ axes.
