@@ -1,2 +1,3 @@
 makeup-final/
-slides/output/
+slides/output/*
+!slides/output/annotated/
