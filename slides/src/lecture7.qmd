@@ -1,8 +1,8 @@
 ---
 title: Quantitative Methods for Business and Economics
-subtitle: Lecture 7 - Multivariable Calculus Fundamentals
+subtitle: Lecture 7 - Statistics Essentials for Finance
 author: Daniel Sánchez Pazmiño
-date: 2024-01-01
+date: 2026-01-01
 theme: berlin
 date-format: "YYYY"
 format: beamer
@@ -16,213 +16,173 @@ include-in-header:
         \usepackage{pgfplots}
 ---
 
-# Functions of Several Variables
+# Why this lecture?
 
-- So far, we've worked with functions $f: \mathbb{R} \to \mathbb{R}$ (one variable in the domain)
+- So far, this course has been algebra and calculus — no statistics yet.
 
-- We can extend the concept of a function to two or more "independent" variables. 
+- Your finance coursework (portfolio theory, Beta) leans on a small set of statistical ideas: **variance**, **covariance**, **correlation**, and **regression**.
 
-$$ f: \mathbb{R}^n \to \mathbb{R} $$
+- This lecture gives you just enough of each to read that material comfortably — not a full statistics course.
 
-where $n$ is the number of variables in the domain.
+# Data with variation
 
-- For example, a production function $Q = f(K, L)$ is a two-variable function, where $K$ is capital and $L$ is labor. It may look like this:
+- Suppose a stock's monthly returns over five months are:
 
-$$ Q = 2K^{0.5}L^{0.5} $$
+$$2\%, \; -1\%, \; 3\%, \; 0\%, \; 1\%$$
 
-following a Cobb-Douglas form.
+- These numbers aren't constant — they vary from month to month.
 
-# Functions of Several Variables
+- Finance calls this variation **risk**. Our first job is to measure it.
 
-- In this case, the domain of the function is multidimensional. The range is still one-dimensional.
+# Variance and standard deviation
 
-- The graph of a function of two variables is a surface in three-dimensional space. Anything beyond three dimensions is hard to visualize.
+- The **variance** measures how spread out a set of numbers is around its mean.
 
-- In this case, the domain of the function is multidimensional. The range is still one-dimensional.
+$$\text{Variance} = \dfrac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2$$
 
-- The graph of a function of two variables is a surface in three-dimensional space. Anything beyond three dimensions is hard to visualize.
+- In words: find the mean, find how far each value is from it, square those distances (so negatives don't cancel positives), then average.
 
-- Often, these functions are represented as $z = f(x, y)$, where $z$ is the dependent variable and $x$ and $y$ are the independent variables.
+- The **standard deviation** is just the square root of the variance — it brings the units back to the original scale (e.g. percent, not percent-squared).
 
-# Why multivariate functions?
+$$\text{SD} = \sqrt{\text{Variance}}$$
 
-- In the social sciences, we rarely deal with phenomena that depend on a single thing.
-    - Economic growth depends on capital, labor, technology, institutions, etc.
-    - Voting behavior depends on income, education, party identification, ethnicity, etc.
-    - Health outcomes depend on genetics, lifestyle, environment, etc.
+# Example: variance and standard deviation
 
-- We will use multivariate functions to model these relationships.
+- Returns: $2, -1, 3, 0, 1$ (percent). Mean: $\bar{x} = 1$.
 
-- Multivariate differentiation is a key tool to understand how these relationships work, as it allows us to analyze how changes in one variable affect the outcome.
+- Deviations from the mean: $1, -2, 2, -1, 0$.
 
-# Exercise
+- Squared deviations: $1, 4, 4, 1, 0$. Sum: $10$.
 
-- Consider the following function:
+$$\text{Variance} = \dfrac{10}{5} = 2 \qquad \text{SD} = \sqrt{2} \approx 1.41\%$$
 
-$$ f(x, y) = 2x^2 + 3xy + 4y^2 $$
+- In finance terms: this stock's monthly returns typically sit about 1.41 percentage points away from their 1% average — that's its risk.
 
-- What is the value of $f(1, 2)$?
+# Excel: variance and standard deviation
 
-- What is the value of $f(2, 1) - f(1,2)$?
+- Excel computes both directly from a range of cells:
 
-# Derivatives of Multivariate Functions
+    - `=VAR.S(range)` — sample variance
+    - `=STDEV.S(range)` — sample standard deviation
 
-- When thinking of the simplest case of a derivative of a single-variable function, we think of the change in the function value as the input changes.
+- (The `.S` versions divide by $n-1$ instead of $n$ — a small correction used when your data is a *sample*, which is almost always the case with real returns. The idea is identical to what we just calculated by hand.)
 
-- When there's a function $z = f(x, y)$, we can think of a derivative as the change in the function value $z$ as the inputs $x$ or $y$ change.
+- This is exactly the function you'll see used on return data in your finance spreadsheets.
 
-- Thus emerges the concept of **partial derivatives**: the derivative of a function with respect to one of its variables, **keeping the other variables constant**.
+# Covariance
 
-# The Ceteris Paribus Notion
+- **Covariance** asks a different question: do *two* variables move together?
 
-- The ceteris paribus notion is often used in economics and other social sciences.
+$$\text{Cov}(x, y) = \dfrac{1}{n}\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})$$
 
-- It is a Latin phrase that means "all other things being equal". It is also known as the "other things equal" assumption, all else equal, all other things held constant, or other things unchanged.
+- Only the **sign** matters for intuition:
+    - Positive: when $x$ is above its mean, $y$ tends to be above its mean too (they move together).
+    - Negative: when $x$ is above its mean, $y$ tends to be below its mean (they move oppositely).
+    - Near zero: no consistent relationship.
 
-- This is a theoretical assumption which allows the researcher to assume that a change has happened in one variable while all other variables remain constant.
+# Example: covariance
 
-- This is a simplifying assumption that allows us to isolate the effect of one variable on the outcome. 
+- Asset A returns: $2, -1, 3, 0, 1$ (mean $1$). Asset B returns: $1, -2, 4, 0, 2$ (mean $1$).
 
-- While it is not always realistic, it is a useful tool to understand how variables interact.
+- Deviations A: $1, -2, 2, -1, 0$. Deviations B: $0, -3, 3, -1, 1$.
 
-- More advanced techniques can allow us to see what happens when ceteris paribus does not hold.
+- Products of deviations: $0, 6, 6, 1, 0$. Sum: $13$.
 
-# Partial Derivatives
+$$\text{Cov}(A, B) = \dfrac{13}{5} = 2.6$$
 
-- The partial derivative of a function $f(x, y)$ with respect to $x$ is denoted as:
+- Positive: these two assets tend to move together.
 
-$$ \frac{\partial f}{\partial x} = f_x = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h} $$
+# Correlation
 
-- Once again, the partial derivative is the rate of change of the function with respect to $x$, **keeping $y$ constant**.
+- Covariance's size depends on the units of $x$ and $y$, which makes it hard to compare across pairs of variables. **Correlation** fixes this by rescaling covariance to always fall between $-1$ and $1$:
 
-- We define this as the limit of the difference quotient as $h$ approaches zero.
+$$\text{Corr}(x, y) = \dfrac{\text{Cov}(x, y)}{\text{SD}(x) \cdot \text{SD}(y)}$$
 
-- The partial derivative with respect to $y$ is defined similarly:
+- Same sign interpretation as covariance, but now the *size* is meaningful too:
+    - Close to $+1$: strong positive relationship.
+    - Close to $-1$: strong negative relationship.
+    - Close to $0$: little to no linear relationship.
 
-$$ \frac{\partial f}{\partial y} = f_y = \lim_{h \to 0} \frac{f(x, y + h) - f(x, y)}{h} $$
+# Example: correlation
 
-# Applying rules of differentiation
+- From before: $\text{Cov}(A,B) = 2.6$, $\text{SD}(A) = \sqrt{2} \approx 1.41$, $\text{SD}(B) = \sqrt{4} = 2$.
 
-- Luckily, if we are keeping one variable constant, we can apply the rules of differentiation we learned in the previous lecture.
+$$\text{Corr}(A, B) = \dfrac{2.6}{1.41 \times 2} \approx 0.92$$
 
-- For example, consider the function $f(x, y) = 2x^2 + 3xy + 4y^2$. To calculate the partial derivative with respect to $x$, we can treat $y$ as a constant (i.e. treat any $y$ terms as if they were numbers rather than variables).
+- A correlation of 0.92 is strong and positive — assets A and B move together closely.
 
-- Thus, the partial derivative with respect to $x$ is:
+# Excel: covariance and correlation
 
-$$ \frac{\partial f}{\partial x} = \dfrac{\partial}{\partial x} \left( 2x^2 + 3xy + 4y^2\right)  = 4x + 3y + 0 = 4x + 3y$$
+- `=COVARIANCE.S(range1, range2)` — sample covariance between two ranges.
 
-# Partial Derivative Rules
+- `=CORREL(range1, range2)` — correlation between two ranges, always between $-1$ and $1$.
 
-- The rules of differentiation we learned in the previous lecture apply to partial derivatives as well. These are restated here for reference:
+- This `CORREL()` function is exactly what you'll see used directly on return data in your portfolio-calculus material.
 
-**Constant Rule**: $\dfrac{\partial}{\partial x} c = 0$
+# Why this matters for portfolios
 
-**Power Rule**: $\dfrac{\partial}{\partial x} x^n = nx^{n-1}$
+- If you hold two assets whose returns don't move perfectly together (correlation below 1), combining them **reduces overall portfolio risk** below the average of their individual risks.
 
-**Sum Rule**: $\dfrac{\partial}{\partial x} (f(x) + g(x)) = \dfrac{\partial}{\partial x} f(x) + \dfrac{\partial}{\partial x} g(x)$
+- This is **diversification** — and it's precisely why correlation, not just individual variances, is central to portfolio construction.
 
-**Product Rule**: $\dfrac{\partial}{\partial x} (f(x)g(x)) = f(x) \dfrac{\partial}{\partial x} g(x) + g(x) \dfrac{\partial}{\partial x} f(x)$
+- Your finance course will build a formula for portfolio variance directly out of the pieces we just covered: individual variances, plus the covariance between assets.
 
-**Quotient Rule**: $\dfrac{\partial}{\partial x} \left(\dfrac{f(x)}{g(x)}\right) = \dfrac{g(x) \dfrac{\partial}{\partial x} f(x) - f(x) \dfrac{\partial}{\partial x} g(x)}{(g(x))^2}$
+# Scatter plots and fitting a line
 
-# Partial Derivative Rules
+- Covariance and correlation summarize a relationship with a single number. A **scatter plot** shows it visually — one point per pair of observations.
 
-**Chain Rule**: $\dfrac{\partial}{\partial x} f(g(x)) = f'(g(x))g'(x)$
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = Asset A return,
+        ylabel = Asset B return,
+        xmin=-3, xmax=4,
+        ymin=-3, ymax=5,
+        grid = major,
+        width=8cm,
+        height=6cm
+    ]
+    \addplot[only marks, mark=*, color=blue] coordinates {(2,1) (-1,-2) (3,4) (0,0) (1,2)};
+    \addplot[domain=-2:4, samples=2, color=red, dashed, thick] {x};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 
-**Exponential Rule**: $\dfrac{\partial}{\partial x} e^{ax} = ae^{ax}$
+- The dashed line is a **regression line**: a straight line drawn to fit the pattern in the data as closely as possible.
 
-**Logarithmic Rule**: $\dfrac{\partial}{\partial x} \ln(x) = \dfrac{1}{x}$
+# The slope of that line
 
-**Trigonometric Rules**: $\dfrac{\partial}{\partial x} \sin(x) = \cos(x)$, $\dfrac{\partial}{\partial x} \cos(x) = -\sin(x)$
+- Recall from equation systems and graphing: a line's **slope** tells you how much $y$ changes per unit change in $x$.
 
-# Exercise
+- The slope of a regression line has the same meaning here: it tells you how much $y$ tends to change, on average, for a one-unit change in $x$.
 
-Find the partial derivatives of the following function:
+- In the figure above, the line $y = x$ has a slope of 1: on average, a 1-point change in Asset A's return comes with about a 1-point change in Asset B's return.
 
-$$ f(x, y) = \dfrac{1}{x^2 + y^2} $$
+# Excel: fitting a line and reading its slope
 
-# The concept of the gradient
+- Excel can fit this line for you directly from a scatter chart: select your data, insert a scatter chart, then **Chart Design > Add Chart Element > Trendline**.
 
-- The gradient of a function $f(x, y)$ is a vector which orders the partial derivatives of the function with respect to each variable.
+- To get the slope as a number rather than just a picture, use:
 
-*Note*: A **vector** is an ordered set of numbers. We will learn more about these later, but for now, think of it as a list of numbers which are either horizontally or vertically arranged.
+    - `=SLOPE(known_y's, known_x's)`
 
-- The gradient is denoted as $\nabla f$ and is defined as:
+- This is the exact calculation behind the number you'll meet next.
 
-$$ \nabla f = \left[\dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y} \right] $$
+# Preview: Beta
 
-for a function $f(x, y)$. More generally, for a function $f(x_1, x_2, \ldots, x_n)$, the gradient is:
+- In your finance course, a stock's **Beta** is defined as the slope of the regression line fit through:
+    - $x$ = the market's returns
+    - $y$ = the stock's returns
 
-$$ \nabla f = \left[ \dfrac{\partial f}{\partial x_1}, \dfrac{\partial f}{\partial x_2}, \ldots, \dfrac{\partial f}{\partial x_n} \right] $$
+- That's it — Beta is nothing more than the slope concept from this lecture, applied to a specific pair of variables.
 
-# The concept of the gradient
+- You now have every piece needed to read that definition: variance and SD (risk), covariance and correlation (co-movement), and slope (Beta itself).
 
-- For the function $f(x, y) = \dfrac{1}{x^2 + y^2}$, the gradient is:\
+# For you
 
-$$ \nabla f = \left( \dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y} \right) = \left[ \dfrac{-2x}{(x^2 + y^2)^2}, \dfrac{-2y}{(x^2 + y^2)^2} \right] $$
+1. A stock has monthly returns of $4, 2, -2, 0, 6$ (percent). Find its variance and standard deviation.
 
-# Higher-order partial derivatives
+2. Two assets have a correlation of $-0.85$. In plain words, how do they tend to move relative to each other?
 
-- Just like in single-variable calculus, we may end up with functions as our result of partial differentiation.
-
-- This will allow us to calculate higher-order partial derivatives (second, third, etc.).
-
-- The second order partial derivative of a function $f(x, y)$ with respect to $x$ is denoted as:
-
-$$ \dfrac{\partial^2 f}{\partial x^2} = \dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial x} \right) $$
-
-while the second order partial derivative of a function $f(x, y)$ with respect $x$ and $y$ is denoted as:
-
-$$ \dfrac{\partial^2 f}{\partial x \partial y} = \dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial y} \right) $$
-
-# Higher-order partial derivatives
-
-- The second order partial derivative $\dfrac{\partial^2 f}{\partial xy}$ is often referred to as a *cross-partial derivative*. 
-
-- The Young's theorem states that the cross-partial derivatives are equal. That is, $\dfrac{\partial^2 f}{\partial xy} = \dfrac{\partial^2 f}{\partial yx}$.
-
-# Example
-
-- For example, consider the function $f(x, y) = 2x^2 + 3xy + 4y^2$. The second order partial derivatives are:
-
-$$ \dfrac{\partial^2 f}{\partial x^2} = 4, \quad \dfrac{\partial^2 f}{\partial y^2} = 8, \quad \dfrac{\partial^2 f}{\partial xy} = 3 $$
-
-- If we try to get $\dfrac{\partial^2 f}{\partial yx}$, we will get the same result as $\dfrac{\partial^2 f}{\partial xy}$:
-
-$$ \dfrac{\partial^2 f}{\partial yx} = 3 $$
-
-# Application: Partial Elasticities
-
-- We had previously seen that in the simplest demand curve $Q = a - bP$, the elasticity of demand is given by:
-
-$$ \dfrac{dQ}{dP} \cdot \dfrac{P}{Q} $$
-
-- This elasticity is a measure of how much the quantity demanded changes as the price changes.
-
-- In a more realistic demand curve, we model the quantity of a product as a function of its own price and several other variables. For instance, we could have:
-
-$$ Q = f(P, Y, A, T, E) $$
-
-where $Y$ is personal income, $A$ is advertising, $T$ is the price of a related product, and $E$ is the educational level of the buyer.
-
-# Application: Partial Elasticities
-
-- In this case, the elasticity of demand with respect to price is given by:
-
-$$ \varepsilon = \dfrac{\partial Q}{\partial P} \cdot \dfrac{P}{Q} $$
-
-- This is a measure of how much the quantity demanded changes as the price changes, ceteris paribus.
-
-- One can calculate the elasticity of demand with respect to any other variable in the function, by calculating the partial derivative of the function with respect to that variable and multiplying by the ratio of the variable to the quantity.
-
-# Application: Partial Elasticities
-
-- For example, consider the demand function $Q = 100 - 2P + 3Y + 4A - 5T + 6E$. The elasticity of demand with respect to income is:
-
-$$ \varepsilon_Y = \dfrac{\partial Q}{\partial Y} \cdot \dfrac{Y}{Q} $$
-
-If $Y = 100$, $P = 10$, $A = 20$, $T = 30$, and $E = 40$, the elasticity of demand with respect to income is:
-
-$$ \varepsilon_Y = 3 \cdot \dfrac{100}{100 - 2 \cdot 10 + 3 \cdot 100 + 4 \cdot 20 - 5 \cdot 30 + 6 \cdot 40} $$
-$$ \varepsilon_Y = 3 \cdot \dfrac{100}{100 - 20 + 300 + 80 - 150 + 240} $$
-$$ \varepsilon_Y = 3 \cdot \dfrac{100}{650} = 0.46 $$
+3. A regression line fit to (market return, stock return) data has a slope of $1.3$. If the market return rises by 2 percentage points, what do you expect for the stock's return?

@@ -1,0 +1,228 @@
+---
+title: Quantitative Methods for Business and Economics
+subtitle: Lecture 8 - Multivariable Calculus Fundamentals
+author: Daniel Sánchez Pazmiño
+date: 2024-01-01
+theme: berlin
+date-format: "YYYY"
+format: beamer
+fontsize: 10pt
+include-in-header:
+    - text: |
+        \setbeamercolor{background canvas}{bg=white}
+        \setbeamertemplate{caption}[numbered]
+        \usecolortheme[named=black]{structure}
+        \usepackage{tikz}
+        \usepackage{pgfplots}
+---
+
+# Functions of Several Variables
+
+- So far, we've worked with functions $f: \mathbb{R} \to \mathbb{R}$ (one variable in the domain)
+
+- We can extend the concept of a function to two or more "independent" variables. 
+
+$$ f: \mathbb{R}^n \to \mathbb{R} $$
+
+where $n$ is the number of variables in the domain.
+
+- For example, a production function $Q = f(K, L)$ is a two-variable function, where $K$ is capital and $L$ is labor. It may look like this:
+
+$$ Q = 2K^{0.5}L^{0.5} $$
+
+following a Cobb-Douglas form.
+
+# Functions of Several Variables
+
+- In this case, the domain of the function is multidimensional. The range is still one-dimensional.
+
+- The graph of a function of two variables is a surface in three-dimensional space. Anything beyond three dimensions is hard to visualize.
+
+- In this case, the domain of the function is multidimensional. The range is still one-dimensional.
+
+- The graph of a function of two variables is a surface in three-dimensional space. Anything beyond three dimensions is hard to visualize.
+
+- Often, these functions are represented as $z = f(x, y)$, where $z$ is the dependent variable and $x$ and $y$ are the independent variables.
+
+# Why multivariate functions?
+
+- In the social sciences, we rarely deal with phenomena that depend on a single thing.
+    - Economic growth depends on capital, labor, technology, institutions, etc.
+    - Voting behavior depends on income, education, party identification, ethnicity, etc.
+    - Health outcomes depend on genetics, lifestyle, environment, etc.
+
+- We will use multivariate functions to model these relationships.
+
+- Multivariate differentiation is a key tool to understand how these relationships work, as it allows us to analyze how changes in one variable affect the outcome.
+
+# Exercise
+
+- Consider the following function:
+
+$$ f(x, y) = 2x^2 + 3xy + 4y^2 $$
+
+- What is the value of $f(1, 2)$?
+
+- What is the value of $f(2, 1) - f(1,2)$?
+
+# Derivatives of Multivariate Functions
+
+- When thinking of the simplest case of a derivative of a single-variable function, we think of the change in the function value as the input changes.
+
+- When there's a function $z = f(x, y)$, we can think of a derivative as the change in the function value $z$ as the inputs $x$ or $y$ change.
+
+- Thus emerges the concept of **partial derivatives**: the derivative of a function with respect to one of its variables, **keeping the other variables constant**.
+
+# The Ceteris Paribus Notion
+
+- The ceteris paribus notion is often used in economics and other social sciences.
+
+- It is a Latin phrase that means "all other things being equal". It is also known as the "other things equal" assumption, all else equal, all other things held constant, or other things unchanged.
+
+- This is a theoretical assumption which allows the researcher to assume that a change has happened in one variable while all other variables remain constant.
+
+- This is a simplifying assumption that allows us to isolate the effect of one variable on the outcome. 
+
+- While it is not always realistic, it is a useful tool to understand how variables interact.
+
+- More advanced techniques can allow us to see what happens when ceteris paribus does not hold.
+
+# Partial Derivatives
+
+- The partial derivative of a function $f(x, y)$ with respect to $x$ is denoted as:
+
+$$ \frac{\partial f}{\partial x} = f_x = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h} $$
+
+- Once again, the partial derivative is the rate of change of the function with respect to $x$, **keeping $y$ constant**.
+
+- We define this as the limit of the difference quotient as $h$ approaches zero.
+
+- The partial derivative with respect to $y$ is defined similarly:
+
+$$ \frac{\partial f}{\partial y} = f_y = \lim_{h \to 0} \frac{f(x, y + h) - f(x, y)}{h} $$
+
+# Applying rules of differentiation
+
+- Luckily, if we are keeping one variable constant, we can apply the rules of differentiation we learned in the previous lecture.
+
+- For example, consider the function $f(x, y) = 2x^2 + 3xy + 4y^2$. To calculate the partial derivative with respect to $x$, we can treat $y$ as a constant (i.e. treat any $y$ terms as if they were numbers rather than variables).
+
+- Thus, the partial derivative with respect to $x$ is:
+
+$$ \frac{\partial f}{\partial x} = \dfrac{\partial}{\partial x} \left( 2x^2 + 3xy + 4y^2\right)  = 4x + 3y + 0 = 4x + 3y$$
+
+# Partial Derivative Rules
+
+- The rules of differentiation we learned in the previous lecture apply to partial derivatives as well. These are restated here for reference:
+
+**Constant Rule**: $\dfrac{\partial}{\partial x} c = 0$
+
+**Power Rule**: $\dfrac{\partial}{\partial x} x^n = nx^{n-1}$
+
+**Sum Rule**: $\dfrac{\partial}{\partial x} (f(x) + g(x)) = \dfrac{\partial}{\partial x} f(x) + \dfrac{\partial}{\partial x} g(x)$
+
+**Product Rule**: $\dfrac{\partial}{\partial x} (f(x)g(x)) = f(x) \dfrac{\partial}{\partial x} g(x) + g(x) \dfrac{\partial}{\partial x} f(x)$
+
+**Quotient Rule**: $\dfrac{\partial}{\partial x} \left(\dfrac{f(x)}{g(x)}\right) = \dfrac{g(x) \dfrac{\partial}{\partial x} f(x) - f(x) \dfrac{\partial}{\partial x} g(x)}{(g(x))^2}$
+
+# Partial Derivative Rules
+
+**Chain Rule**: $\dfrac{\partial}{\partial x} f(g(x)) = f'(g(x))g'(x)$
+
+**Exponential Rule**: $\dfrac{\partial}{\partial x} e^{ax} = ae^{ax}$
+
+**Logarithmic Rule**: $\dfrac{\partial}{\partial x} \ln(x) = \dfrac{1}{x}$
+
+**Trigonometric Rules**: $\dfrac{\partial}{\partial x} \sin(x) = \cos(x)$, $\dfrac{\partial}{\partial x} \cos(x) = -\sin(x)$
+
+# Exercise
+
+Find the partial derivatives of the following function:
+
+$$ f(x, y) = \dfrac{1}{x^2 + y^2} $$
+
+# The concept of the gradient
+
+- The gradient of a function $f(x, y)$ is a vector which orders the partial derivatives of the function with respect to each variable.
+
+*Note*: A **vector** is an ordered set of numbers. We will learn more about these later, but for now, think of it as a list of numbers which are either horizontally or vertically arranged.
+
+- The gradient is denoted as $\nabla f$ and is defined as:
+
+$$ \nabla f = \left[\dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y} \right] $$
+
+for a function $f(x, y)$. More generally, for a function $f(x_1, x_2, \ldots, x_n)$, the gradient is:
+
+$$ \nabla f = \left[ \dfrac{\partial f}{\partial x_1}, \dfrac{\partial f}{\partial x_2}, \ldots, \dfrac{\partial f}{\partial x_n} \right] $$
+
+# The concept of the gradient
+
+- For the function $f(x, y) = \dfrac{1}{x^2 + y^2}$, the gradient is:\
+
+$$ \nabla f = \left( \dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y} \right) = \left[ \dfrac{-2x}{(x^2 + y^2)^2}, \dfrac{-2y}{(x^2 + y^2)^2} \right] $$
+
+# Higher-order partial derivatives
+
+- Just like in single-variable calculus, we may end up with functions as our result of partial differentiation.
+
+- This will allow us to calculate higher-order partial derivatives (second, third, etc.).
+
+- The second order partial derivative of a function $f(x, y)$ with respect to $x$ is denoted as:
+
+$$ \dfrac{\partial^2 f}{\partial x^2} = \dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial x} \right) $$
+
+while the second order partial derivative of a function $f(x, y)$ with respect $x$ and $y$ is denoted as:
+
+$$ \dfrac{\partial^2 f}{\partial x \partial y} = \dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial y} \right) $$
+
+# Higher-order partial derivatives
+
+- The second order partial derivative $\dfrac{\partial^2 f}{\partial xy}$ is often referred to as a *cross-partial derivative*. 
+
+- The Young's theorem states that the cross-partial derivatives are equal. That is, $\dfrac{\partial^2 f}{\partial xy} = \dfrac{\partial^2 f}{\partial yx}$.
+
+# Example
+
+- For example, consider the function $f(x, y) = 2x^2 + 3xy + 4y^2$. The second order partial derivatives are:
+
+$$ \dfrac{\partial^2 f}{\partial x^2} = 4, \quad \dfrac{\partial^2 f}{\partial y^2} = 8, \quad \dfrac{\partial^2 f}{\partial xy} = 3 $$
+
+- If we try to get $\dfrac{\partial^2 f}{\partial yx}$, we will get the same result as $\dfrac{\partial^2 f}{\partial xy}$:
+
+$$ \dfrac{\partial^2 f}{\partial yx} = 3 $$
+
+# Application: Partial Elasticities
+
+- We had previously seen that in the simplest demand curve $Q = a - bP$, the elasticity of demand is given by:
+
+$$ \dfrac{dQ}{dP} \cdot \dfrac{P}{Q} $$
+
+- This elasticity is a measure of how much the quantity demanded changes as the price changes.
+
+- In a more realistic demand curve, we model the quantity of a product as a function of its own price and several other variables. For instance, we could have:
+
+$$ Q = f(P, Y, A, T, E) $$
+
+where $Y$ is personal income, $A$ is advertising, $T$ is the price of a related product, and $E$ is the educational level of the buyer.
+
+# Application: Partial Elasticities
+
+- In this case, the elasticity of demand with respect to price is given by:
+
+$$ \varepsilon = \dfrac{\partial Q}{\partial P} \cdot \dfrac{P}{Q} $$
+
+- This is a measure of how much the quantity demanded changes as the price changes, ceteris paribus.
+
+- One can calculate the elasticity of demand with respect to any other variable in the function, by calculating the partial derivative of the function with respect to that variable and multiplying by the ratio of the variable to the quantity.
+
+# Application: Partial Elasticities
+
+- For example, consider the demand function $Q = 100 - 2P + 3Y + 4A - 5T + 6E$. The elasticity of demand with respect to income is:
+
+$$ \varepsilon_Y = \dfrac{\partial Q}{\partial Y} \cdot \dfrac{Y}{Q} $$
+
+If $Y = 100$, $P = 10$, $A = 20$, $T = 30$, and $E = 40$, the elasticity of demand with respect to income is:
+
+$$ \varepsilon_Y = 3 \cdot \dfrac{100}{100 - 2 \cdot 10 + 3 \cdot 100 + 4 \cdot 20 - 5 \cdot 30 + 6 \cdot 40} $$
+$$ \varepsilon_Y = 3 \cdot \dfrac{100}{100 - 20 + 300 + 80 - 150 + 240} $$
+$$ \varepsilon_Y = 3 \cdot \dfrac{100}{650} = 0.46 $$
