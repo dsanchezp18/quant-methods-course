@@ -1,6 +1,6 @@
 ---
 title: Quantitative Methods for Business and Economics
-subtitle: Lecture 5 - Single Variable Calculus & Optimization
+subtitle: Lecture 6 - Limits
 author: Daniel Sánchez Pazmiño
 date: 2026-01-01
 theme: berlin
@@ -16,529 +16,194 @@ include-in-header:
         \usepackage{pgfplots}
 ---
 
-# What is Calculus?
+# Why limits?
 
-- Calculus is the mathematical study of change.
-
-- It has two main branches:
-    - **Differential calculus**: studies the rate at which quantities change.
-    - **Integral calculus**: studies the accumulation of quantities.
-
-- Calculus is used in many fields, including physics, engineering, economics, and social sciences.
-
-# Differential Single Variable Calculus
-
-- Single variable calculus deals with functions of one variable.
-
-- Functions of one variable take a single input and produce a single output. This is usually denoted as:
-
-$$f: \mathbb{R} \to \mathbb{R}$$
-
-- Differential calculus studies the rate at which functions change. Hence, rates of change are the main focus of this branch of calculus.
-
-# Rates of Change
-
-- Remember variations $\Delta x$ and $\Delta y$? Rates of change for functions are not too different from these. 
-
-- The rate of change of a function $f(x)$ at a point $x = a$ represents how much the function changes as $x$ changes by a small amount $\Delta x$ around $a$. 
-
-- The concept of slope is crucial for understanding rates of change, as it is the ratio of the change in $y$ to the change in $x$.
-
-- The slope is not constant for all functions. It can change depending on the point at which it is calculated.
-
-# Slopes and Tangent Lines
-
-- The slope of the tangent line to the graph of $f(x)$ at $x = a$ is the rate of change of $f(x)$ at $x = a$.
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[scale=0.7]
-        \begin{axis}[
-            axis lines = middle,
-            xlabel = $x$,
-            ylabel = $y$,
-            xmin=-1, xmax=5,
-            ymin=-1, ymax=10,
-            grid = major,
-            width=10cm,
-            height=8cm,
-            domain=0:4,
-            samples=100
-        ]
-        % Plot the function f(x) = x^2
-        \addplot[
-            color=blue,
-            thick
-        ]{x^2} node[right] {$f(x) = x^2$};
-        
-        % Plot the tangent line at x = 1
-        \addplot[
-            color=red,
-            dashed
-        ]{2*x - 1} node[above] {Tangent at $x = 1$};
-        
-        % Plot the tangent line at x = 3
-        \addplot[
-            color=green,
-            dashed
-        ]{6*x - 9} node[above] {Tangent at $x = 3$};
-        
-        % Mark the points of tangency
-        \addplot[
-            only marks,
-            mark=*,
-            color=black
-        ] coordinates {(1, 1) (3, 9)};
-        
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Curve $f(x) = x^2$ and its tangent lines at $x = 1$ and $x = 3$}
-\end{figure}
-
-# Derivatives
-
-- Because rates of change are not constant, it makes sense to define a function that gives the rate of change of another function at any point.
-
-- This function is called the **derivative** (or the first derivative). It is denoted as $f'(x)$ or $\dfrac{df}{dx}$.
-
-- The derivative of a function $f(x)$ at a point $x = a$ is the slope of the tangent line to the graph of $f(x)$ at $x = a$.
-
-- The derivative of a function $f(x)$ is itself a function that gives the rate of change of $f(x)$ at any point.
-
-# A brief mention of limits
-
-- The derivative of a function $f(x)$ at a point $x = a$ is defined as the limit of the average rate of change of $f(x)$ as $x$ approaches $a$.
-
-- Limits are a fundamental concept in calculus. They are used to define derivatives, integrals, and many other concepts in calculus.
-
-- A limit is an operator that gives the value a function **approaches** as the input approaches a certain value. It helps to think of it as the value the function gets closer and closer to.
-
-- There are many rules and properties of limits that are used to calculate them. We will not cover them in this lecture, but they are crucial for a deeper understanding of calculus.
-
-# The Derivative of a Function
-
-- The derivative of a function $f(x)$ at a point $x = a$ is defined as:
+- Last lecture, we defined the derivative as:
 
 $$f'(a) = \lim_{h \to 0} \dfrac{f(a + h) - f(a)}{h}$$
 
-- This definition gives the slope of the tangent line to the graph of $f(x)$ at $x = a$.
+- We used the word "limit" without really explaining what it means. Let's fix that.
 
-- The derivative of a function $f(x)$ is itself a function that gives the rate of change of $f(x)$ at any point.
+- A limit just describes the value a function *gets closer and closer to*, as its input gets closer and closer to some point.
 
-- The derivative of a function $f(x)$ is denoted as $f'(x)$ or $\dfrac{df}{dx}$.
+# A numerical example
 
-# Derivatives without limits
+- Consider $f(x) = \dfrac{x^2 - 1}{x - 1}$. Plugging in $x=1$ gives $\frac{0}{0}$ — undefined.
 
-- Thankfully, we don't really need limits to calculate derivatives for most functions.
+- But let's see what happens as $x$ gets closer to 1:
 
-- The rules of differentiation allow us to calculate the derivative of a function without using limits, but rather relatively simple algebraic manipulations.
+\begin{table}[h]
+\centering
+\begin{tabular}{c|cccccc}
+$x$ & 0.9 & 0.99 & 0.999 & 1.001 & 1.01 & 1.1 \\
+\hline
+$f(x)$ & 1.9 & 1.99 & 1.999 & 2.001 & 2.01 & 2.1
+\end{tabular}
+\end{table}
 
-# Rules of Differentiation
+- Even though $f(1)$ doesn't exist, $f(x)$ keeps getting closer to 2. We say:
 
-1. **Power rule**: If $f(x) = x^n$, then $f'(x) = nx^{n-1}$.
+$$\lim_{x \to 1} \dfrac{x^2 - 1}{x - 1} = 2$$
 
-2. **Sum rule**: If $f(x) = g(x) + h(x)$, then $f'(x) = g'(x) + h'(x)$.
+# Graphing it
 
-3. **Product rule**: If $f(x) = g(x)h(x)$, then $f'(x) = g'(x)h(x) + g(x)h'(x)$.
+- $f(x) = \dfrac{x^2-1}{x-1}$ is just the line $y = x + 1$ with a "hole" punched out at $x = 1$.
 
-4. **Quotient rule**: If $f(x) = \dfrac{g(x)}{h(x)}$, then $f'(x) = \dfrac{g'(x)h(x) - g(x)h'(x)}{(h(x))^2}$.
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = $x$,
+        ylabel = $y$,
+        xmin=-1, xmax=3,
+        ymin=-1, ymax=4,
+        grid = major,
+        width=7cm,
+        height=6cm
+    ]
+    \addplot[domain=-1:0.98, samples=50, color=blue, thick] {x + 1};
+    \addplot[domain=1.02:3, samples=50, color=blue, thick] {x + 1};
+    \addplot[only marks, mark=o, mark size=2.5pt, color=blue] coordinates {(1, 2)};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 
-5. **Chain rule**: If $f(x) = g(h(x))$, then $f'(x) = g'(h(x))h'(x)$.
+- The open circle is the hole. Even though the function is never actually *at* 2, it gets arbitrarily close — that's the limit.
 
-# More properties of derivatives
+# When there's no single value to approach
 
-- The derivative of a constant is zero: If $f(x) = c$, then $f'(x) = 0$.
+- A shipping company charges a flat rate that jumps at a weight threshold:
 
-- The derivative of the identity function is one: If $f(x) = x$, then $f'(x) = 1$.
+$$f(x) = \begin{cases} \$1 & x < 0 \text{ (light package)} \\ \$2 & x \geq 0 \text{ (heavy package)} \end{cases}$$
 
-- For the exponential function $f(x) = a^x$, the derivative is $f'(x) = a^x \ln(a)$.
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = $x$,
+        ylabel = rate,
+        xmin=-3, xmax=3,
+        ymin=0, ymax=3,
+        grid = major,
+        width=7cm,
+        height=5.5cm
+    ]
+    \addplot[domain=-3:0, samples=2, color=blue, thick] {1};
+    \addplot[domain=0:3, samples=2, color=red, thick] {2};
+    \addplot[only marks, mark=*, mark size=2pt, color=red] coordinates {(0, 2)};
+    \addplot[only marks, mark=o, mark size=2.5pt, color=blue] coordinates {(0, 1)};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 
-- For the natural logarithm function $f(x) = \ln(x)$, the derivative is $f'(x) = \dfrac{1}{x}$.
+- Approaching from the left gives 1; approaching from the right gives 2. Since these disagree, **the limit at $x=0$ does not exist** — there's no single value the function is closing in on.
 
-- For the trigonometric functions, the derivatives are as follows:
-    - $\sin(x)$: $\cos(x)$
-    - $\cos(x)$: $-\sin(x)$
-    - $\tan(x)$: $\sec^2(x)$
-    - $\cot(x)$: $-\csc^2(x)$
-    - $\sec(x)$: $\sec(x)\tan(x)$
-    - $\csc(x)$: $-\csc(x)\cot(x)$
+# The practical rule: just plug in
 
-# Example: Derivative of a power function
+- For almost every function we'll use — polynomials, and fractions where the denominator isn't zero — the limit is simply the value of the function at that point.
 
-- Let's calculate the derivative of the function $f(x) = x^2$.
+$$\lim_{x \to 3} (2x^2 - 5) = 2(3)^2 - 5 = 13$$
 
-- Using the power rule, we have:
+- No table, no graph needed. Just substitute and evaluate.
 
-$$f'(x) = 2x^{2-1} = 2x$$
+- The only time this shortcut fails is when substitution gives you $\frac{0}{0}$.
 
-- Therefore, the derivative of $f(x) = x^2$ is $f'(x) = 2x$.
+# When plugging in gives 0/0
 
-# Example: Derivative of a sum
+- Getting $\frac{0}{0}$ doesn't mean the limit doesn't exist — it means the expression can be simplified first.
 
-- Let's calculate the derivative of the function $f(x) = x^2 + 3x$.
+- Revisit $\lim_{x \to 1} \dfrac{x^2 - 1}{x - 1}$: substitution gives $\frac{0}{0}$. Factor the numerator and cancel:
 
-- Using the sum rule, we have:
+$$\dfrac{x^2 - 1}{x - 1} = \dfrac{(x-1)(x+1)}{x - 1} = x + 1 \quad (x \neq 1)$$
 
-$$f'(x) = (x^2)' + (3x)' = 2x + 3$$
+- Now substitution works on the simplified version:
 
-- Therefore, the derivative of $f(x) = x^2 + 3x$ is $f'(x) = 2x + 3$.
+$$\lim_{x \to 1} (x + 1) = 2$$
 
-# Example: Derivative of a product
+- Matches what we saw in the table earlier.
 
-- Let's calculate the derivative of the function $f(x) = x^2 \cdot \sqrt{x}$.
+# Try one yourself: an example
 
-- Using the product rule and the power rule, we have:
-$$f'(x) = (x^2)' \cdot \sqrt(x) + x^2 \cdot (\sqrt(x))'$$
+- Find $\lim_{x \to 2} \dfrac{x^2 - 4}{x - 2}$.
 
-$$f'(x) = 2x \cdot \sqrt(x) + x^2 \cdot \dfrac{1}{2\sqrt(x)}$$
-$$f'(x) = 2x\sqrt(x) + \dfrac{x^2}{2\sqrt(x)}$$
+- Substitution gives $\frac{0}{0}$, so factor:
 
-# Example: Applying the chain rule
+$$\dfrac{x^2-4}{x-2} = \dfrac{(x-2)(x+2)}{x-2} = x + 2$$
 
-- Let's calculate the derivative of the function $f(x) = (x^2 + 1)^3$.
+$$\lim_{x \to 2} \dfrac{x^2-4}{x-2} = \lim_{x \to 2}(x+2) = 4$$
 
-- The chain rule involves two functions: the outer function $g(x) = x^3$ and the inner function $h(x) = x^2 + 1$.
+# Application: what happens in the long run?
 
-- Using the chain rule, we have:
+- We can also ask what a function approaches as $x$ grows very large — useful for describing long-run behavior.
 
-$$f'(x) = 3(x^2 + 1)^2 \cdot (2x)$$
+- A firm's average cost per unit is $\bar{C}(x) = \dfrac{100}{x} + 5$, where \$100 is fixed cost spread over $x$ units and \$5 is the variable cost per unit.
 
-$$f'(x) = 6x(x^2 + 1)^2$$
+- As $x$ grows, the fixed-cost share shrinks toward zero, so:
 
-# Applications: the concept of marginality
+$$\lim_{x \to \infty} \left(\dfrac{100}{x} + 5\right) = 5$$
 
-- In many fields, the derivative of a function has a special meaning.
+- In words: at very high volumes, average cost approaches the variable cost of \$5 — but never quite reaches it.
 
-- The concept of **margin** is crucial in economics and business, denoting the **additional** or **incremental** change in a quantity given a small change in another quantity.
+# Application: the graph
 
-- The derivative of a function represents the marginal change in the function with respect to the input.
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = $x$ (units produced),
+        ylabel = $\bar{C}(x)$,
+        xmin=0, xmax=50,
+        ymin=0, ymax=25,
+        grid = major,
+        width=8cm,
+        height=6cm,
+        domain=1:50,
+        samples=100
+    ]
+    \addplot[color=blue, thick] {100/x + 5};
+    \addplot[color=red, dashed] {5};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 
-- Marginal products, marginal costs, marginal revenues, and marginal utilities are all examples of marginal quantities that are calculated using derivatives.
+- The dashed line is a **horizontal asymptote**: the value the curve keeps approaching but never crosses.
 
-# Example: marginal profit
+# A faster shortcut: L'Hôpital's Rule
 
-Suppose a car dealership's profit function is
+- Factoring works, but isn't always convenient. If substitution gives $\frac{0}{0}$ (or $\frac{\infty}{\infty}$), there's a shortcut:
 
-$$\Pi(q) = 200q - q^2$$
+$$\lim_{x \to a} \dfrac{f(x)}{g(x)} = \lim_{x \to a} \dfrac{f'(x)}{g'(x)}$$
 
-where $q$ is the number of cars sold.
+- In words: differentiate the top and the bottom **separately** (this is *not* the quotient rule), then substitute again.
 
-# Example: marginal profit
+- Example: $\lim_{x \to 0} \dfrac{e^x - 1}{x}$ gives $\frac{0}{0}$. Differentiate top and bottom:
 
-What is the marginal profit? This means we need to calculate the derivative of profit with respect to the number of cars sold:
+$$\lim_{x \to 0} \dfrac{e^x - 1}{x} = \lim_{x \to 0} \dfrac{e^x}{1} = e^0 = 1$$
 
-$$\dfrac{d\Pi}{dq} = 200 - 2q$$
+# Continuity, in plain terms
 
-- This derivative is the **marginal profit** function.
+- A function is **continuous** at a point if you can draw its graph through that point without lifting your pen.
 
-- It tells us approximately how much profit changes when the dealership sells one more car.
+- Equivalently: the limit as you approach the point matches the actual value of the function there.
 
-- For example, at $q = 50$,
+- This is exactly why "just plug in" works for polynomials, exponentials, and logs — they're continuous everywhere they're defined.
 
-$$MP(50) = 200 - 2(50) = 100$$
+- Holes (like our first example) and jumps (like the shipping rate) are the two ways continuity breaks down — and exactly when we need the extra tools from this lecture.
 
-- So near 50 cars sold, one additional car raises profit by about \$100.
+# Back to derivatives
 
-# Single variable optimization
+- Recall the derivative definition from last lecture:
 
-- Optimization is a key concept in the social sciences and many other fields.
+$$f'(a) = \lim_{h \to 0} \dfrac{f(a+h) - f(a)}{h}$$
 
-- Optimization involves finding the maximum or minimum value of a function, sometimes subject to constraints.
+- Plugging in $h=0$ directly always gives $\frac{0}{0}$ — it's indeterminate by construction.
 
-- Calculus, and specifically derivatives, are crucial tools for optimization.
+- That's exactly why we rely on the differentiation *rules* (power, product, chain, etc.) instead of evaluating this limit from scratch every time — they're built-in shortcuts around this problem.
 
-- In single-variable optimization, we are interested in finding the maximum or minimum value of a function of one variable.
+# For you
 
-- For now, we will focus on finding the maximum or minimum value of a function without constraints.
+1. Evaluate $\lim_{x \to 4} \dfrac{x^2 - 16}{x - 4}$ by factoring and cancelling.
 
-# Critical points
+2. Evaluate the same limit using L'Hôpital's Rule, and check your answers match.
 
-- Critical points are points at which the derivative of a function is zero or undefined.
-
-- Critical points are important because they can be local maxima, local minima, or neither.
-    - Local maxima are points where the function reaches a maximum value in a small neighborhood.
-    - Local minima are points where the function reaches a minimum value in a small neighborhood.
-    - Some critical points are neither a maximum nor a minimum.
-
-- To find the critical points of a function, we need to find the values of $x$ for which $f'(x) = 0$ or $f'(x)$ is undefined.
-
-# Example: Finding critical points
-
-Consider the function $f(x) = x^3 - 3x^2 + 2x$.
-
-To find the critical points of $f(x)$, we need to find the values of $x$ for which $f'(x) = 0$ or $f'(x)$ is undefined.
-
-First, we need to calculate the derivative of $f(x)$:
-
-$$f'(x) = 3x^2 - 6x + 2$$
-
-Now, we need to find the values of $x$ for which $f'(x) = 0$:
-
-$$3x^2 - 6x + 2 = 0$$
-
-# Example: Finding critical points
-
-$$x = \dfrac{6 \pm \sqrt{(-6)^2 - 4 \cdot 3 \cdot 2}}{2 \cdot 3}$$
-
-$$x = \dfrac{6 \pm \sqrt{36 - 24}}{6}$$
-
-$$x = \dfrac{6 \pm \sqrt{12}}{6}$$
-
-$$x = \dfrac{6 \pm 2\sqrt{3}}{6}$$
-
-$$x = 1 \pm \dfrac{\sqrt{3}}{3}$$
-
-# Example: Finding critical points
-
-- Therefore, the critical points of the function $f(x) = x^3 - 3x^2 + 2x$ are $x = 1 + \dfrac{\sqrt{3}}{3}$ and $x = 1 - \dfrac{\sqrt{3}}{3}$.
-
-- To determine whether these points are local maxima, local minima, or saddle points, we need to analyze the behavior of the function around these points.
-
-- There are several ways to do this:
-    - Use the second derivative test (we will cover this later)
-    - Look at the graph of the function around the critical points.
-
-# Example: Finding critical points
-
-- Let's first look at the graph of $f(x) = x^3 - 3x^2 + 2x$ around the critical points.
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[scale=0.7]
-        \begin{axis}[
-            axis lines = middle,
-            xlabel = $x$,
-            ylabel = $f(x)$,
-            xmin=-1, xmax=3,
-            ymin=-2, ymax=2,
-            grid = major,
-            width=10cm,
-            height=8cm,
-            domain=-1:3,
-            samples=100
-        ]
-        % Plot the function f(x) = x^3 - 3x^2 + 2x
-        \addplot[
-            color=blue,
-            thick
-        ]{x^3 - 3*x^2 + 2*x} node[right] {$f(x) = x^3 - 3x^2 + 2x$};
-        
-        % Mark the critical points
-        \addplot[
-            only marks,
-            mark=*,
-            color=black
-        ] coordinates {(1 + sqrt(3)/3, 2/3) (1 - sqrt(3)/3, 2/3)};
-        
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Graph of the function $f(x) = x^3 - 3x^2 + 2x$}
-\end{figure}
-
-# Example: Finding critical points
-
-- From the graph, we can see that the function has a local maximum at $x = 1 + \dfrac{\sqrt{3}}{3}$ and a local minimum at $x = 1 - \dfrac{\sqrt{3}}{3}$.
-
-- Therefore, the critical points of the function $f(x) = x^3 - 3x^2 + 2x$ are $x = 1 + \dfrac{\sqrt{3}}{3}$ and $x = 1 - \dfrac{\sqrt{3}}{3}$.
-
-# Maximum and minimum values with the second derivative test
-
-- Once we have found the critical points of a function, we can determine whether they are local maxima, local minima, or saddle points.
-
-- To determine whether a critical point is a local maximum or a local minimum, we can use the second derivative test apart from looking at the graph.
-
-- The second derivative is calculated as the derivative of the first derivative of the original function $f(x)$.
-
-- The second derivative test states that if $f''(x) > 0$ at a critical point $x = a$, then $f(a)$ is a local minimum. If $f''(x) < 0$ at a critical point $x = a$, then $f(a)$ is a local maximum.
-
-# Example: Using the second derivative test
-
-Consider the function $f(x) = x^3 - 3x^2 + 2x$.
-
-We have already found the critical points of this function: $x = 1 + \dfrac{\sqrt{3}}{3}$ and $x = 1 - \dfrac{\sqrt{3}}{3}$.
-
-Now, we need to calculate the second derivative of $f(x)$:
-
-$$f'(x) = 3x^2 - 6x + 2$$
-
-$$f''(x) = 6x - 6$$
-
-# Example: Using the second derivative test
-
-Now, we need to evaluate $f''(x)$ at the critical points:
-
-$$f''(1 + \dfrac{\sqrt{3}}{3}) = 6(1 + \dfrac{\sqrt{3}}{3}) - 6 = 6 + 2\sqrt{3} - 6 = 2\sqrt{3} > 0$$
-
-$$f''(1 - \dfrac{\sqrt{3}}{3}) = 6(1 - \dfrac{\sqrt{3}}{3}) - 6 = 6 - 2\sqrt{3} - 6 = -2\sqrt{3} < 0$$
-
-# Example: Using the second derivative test
-
-- Therefore, the critical point $x = 1 + \dfrac{\sqrt{3}}{3}$ is a local minimum, and the critical point $x = 1 - \dfrac{\sqrt{3}}{3}$ is a local maximum.
-
-- This means that the function $f(x) = x^3 - 3x^2 + 2x$ has a local minimum at $x = 1 + \dfrac{\sqrt{3}}{3}$ and a local maximum at $x = 1 - \dfrac{\sqrt{3}}{3}$.
-
-# Visualizing the function and derivatives
-
-- Let's visualize the function $f(x) = x^3 - 3x^2 + 2x$ and its first and second derivatives.
-    - <span style="color:blue"> *Blue* </span> represents the function $f(x)$.
-    - <span style="color:red"> *Red* </span> represents the first derivative $f'(x)$.
-    - <span style="color:green"> *Green* </span> represents the second derivative $f''(x)$.
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[scale=0.7]
-        \begin{axis}[
-            axis lines = middle,
-            xlabel = $x$,
-            ylabel = $f(x)$,
-            xmin=-1, xmax=3,
-            ymin=-2, ymax=2,
-            grid = major,
-            width=10cm,
-            height=8cm,
-            domain=-1:3,
-            samples=100
-        ]
-        % Plot the function f(x) = x^3 - 3x^2 + 2x
-        \addplot[
-            color=blue,
-            thick
-        ]{x^3 - 3*x^2 + 2*x} node[right] {$f(x) = x^3 - 3x^2 + 2x$};
-        
-        % Plot the first derivative f'(x) = 3x^2 - 6x + 2
-        \addplot[
-            color=red,
-            thick
-        ]{3*x^2 - 6*x + 2} node[right] {$f'(x) = 3x^2 - 6x + 2$};
-        
-        % Plot the second derivative f''(x) = 6x - 6
-        \addplot[
-            color=green,
-            thick
-        ]{6*x - 6} node[right] {$f''(x) = 6x - 6$};
-        
-        % Mark the critical points
-        \addplot[
-            only marks,
-            mark=*,
-            color=black
-        ] coordinates {(1 + sqrt(3)/3, 2/3) (1 - sqrt(3)/3, 2/3)};
-        
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Graph of the function $f(x) = x^3 - 3x^2 + 2x$ and its first and second derivatives}
-\end{figure}
-
-# Local and global maxima and minima
-
-- As you've noticed, the function above had both a local maximum and a local minimum.
-
-- We call these points local since the function goes up and down around them, so in principle they are not the maximum or minimum values of the function.
-
-- We then say that the function has no **global** maximum or minimum. 
-
-- Some functions may have local and global maxima or minima, while others may have only local maxima or minima. Others may have neither.
-
-- The existence of global maxima and minima is a more complex problem that involves analyzing the behavior of the function at the boundaries of its domain, and we will not cover it in this lecture.
-
-# Maximization and minimization
-
-- We are interested in maximization when functions exhibit at least a local maximum, and in minimization when they exhibit at least a local minimum.
-
-- Whether a function has maxima or minima is a question of interest in many fields, and it depends on the shape of the function and the behavior of its derivatives.
-
-- We often talk about concavity and convexity of functions to determine whether they have maxima or minima. 
-
-- As a rough rule, if a function is concave up, it tends to have a minimum, and if it is concave down, it tends to have a maximum. 
-
-# Concavity and convexity - graphical intuition
-
-- A function is **concave up** if it curves upwards, like a smiley face.
-
-- A function is **concave down** if it curves downwards, like a frown. This is convexity.
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[scale=0.7]
-        \begin{axis}[
-            axis lines = middle,
-            xlabel = $x$,
-            ylabel = $f(x)$,
-            xmin=-1, xmax=3,
-            ymin=-2, ymax=2,
-            grid = major,
-            width=10cm,
-            height=8cm,
-            domain=-1:3,
-            samples=100
-        ]
-        % Plot the function f(x) = x^3 - 3x^2 + 2x
-        \addplot[
-            color=blue,
-            thick
-        ]{x^2} node[right] {$f(x) = x^2$};
-        
-        % Plot the function f(x) = -x^2
-        \addplot[
-            color=red,
-            thick
-        ]{-x^2} node[right] {$f(x) = -x^2$};
-        
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Graphs of concave up and concave down functions}
-\end{figure}
-
-# Optimization notation
-
-- A real world example of optimization is maximizing or minimizing a function that represents a quantity of interest.
-    - For example, a government may want to maximize public welfare given a certain budget.
-    - A firm may want to maximize profit or minimize cost.
-    - An investor may want to choose the scale of an investment to maximize returns net of cost.
-
-- In all these cases, optimization involves finding the maximum or minimum value of a function.  This is done by finding the critical points of the function and analyzing their behavior.
-
-- The notation of these optimization problems is usually as follows:
-
-$$\max f(x) \quad \text{or} \quad \min f(x)$$
-
-# Optimization notation
-
-- The objective function $f(x)$ represents the quantity we want to maximize or minimize.
-
-- The objective variable $x$ represents the variable that we can change to maximize or minimize the function.
-
-- We often say that we maximize or minimize a function **with respect to** (w.r.t.) the objective variable. In notation, this is written as:
-
-$$\max_{x} f(x) = \max_{x} x^2 + x + 5$$
-
-<!-- # Constrained optimization with objective function redesign
-
-- In many real-world problems, we need to optimize a function subject to constraints.
-
-- Constrained optimization involves finding the maximum or minimum value of a function subject to one or more constraints.
-
-- While there are advanced methods to solve constrained optimization (e.g. the Lagrange multiplier), we can redefine the problem to an unconstrained optimization problem.
-
-- This is done by redesigning the objective function to include the constraints. -->
-
-<!-- # Constrained optimization with objective function redesign
-
-- When there is a constraint $g(x) = c$, we add it to the maximization or minimization problem saying we optimize **subject to** the constraint.
-
-- In principle, there is no limit to the amount of constraints we can add to the problem, but to keep things simple for now, we will only consider one constraint.
-
-- The notation for constrained optimization is as follows:
-
-$$\max_{x} f(x) \quad \text{s.t.} \quad g(x) = c$$
-
-# Constrained optimization with objective function redesign
-
-- To redesign the objective function, we use the constraint to eliminate one of the variables.
-
-- **Know that this not always possible**. 
-
-- Consider the following example:
-
-$$\max_{x, y} x^2 + y^2 \quad \text{s.t.} \quad x + y = 1$$
- -->
+3. A firm's average cost is $\bar{C}(x) = \dfrac{500}{x} + 8$. What does average cost approach as $x \to \infty$?
