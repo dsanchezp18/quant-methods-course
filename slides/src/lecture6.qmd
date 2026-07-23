@@ -26,6 +26,16 @@ $$f'(a) = \lim_{h \to 0} \dfrac{f(a + h) - f(a)}{h}$$
 
 - A limit just describes the value a function *gets closer and closer to*, as its input gets closer and closer to some point.
 
+# Why do business, finance, and economics care?
+
+- **Marginal analysis is a limit.** Marginal cost, marginal revenue, and marginal profit are all derivatives — and every derivative is defined as a limit. You cannot rigorously justify "the extra cost of one more unit" without one.
+
+- **Long-run behavior is a limit.** Does average cost ever truly hit a floor? Does a market ever fully saturate? These "as $x$ gets huge" questions are exactly the *limits at infinity* we'll cover today.
+
+- **Continuous growth is a limit.** Back in the logarithms lecture, $e$ itself was defined as a limit ($e = \lim_{n \to \infty}(1 + 1/n)^n$) — continuous compounding, population growth, and depreciation models all lean on this.
+
+- In short: limits aren't abstract math for its own sake — they're the rigorous foundation underneath tools you already use (derivatives) and are about to use (long-run/asymptotic reasoning).
+
 # A numerical example
 
 - Consider $f(x) = \dfrac{x^2 - 1}{x - 1}$. Plugging in $x=1$ gives $\frac{0}{0}$ — undefined.
@@ -85,8 +95,8 @@ $$f(x) = \begin{cases} \$1 & x < 0 \text{ (light package)} \\ \$2 & x \geq 0 \te
         xmin=-3, xmax=3,
         ymin=0, ymax=3,
         grid = major,
-        width=7cm,
-        height=5.5cm
+        width=5.5cm,
+        height=3cm
     ]
     \addplot[domain=-3:0, samples=2, color=blue, thick] {1};
     \addplot[domain=0:3, samples=2, color=red, thick] {2};
@@ -96,7 +106,7 @@ $$f(x) = \begin{cases} \$1 & x < 0 \text{ (light package)} \\ \$2 & x \geq 0 \te
 \end{tikzpicture}
 \end{center}
 
-- Approaching from the left gives 1; approaching from the right gives 2. Since these disagree, **the limit at $x=0$ does not exist** — there's no single value the function is closing in on.
+- Approaching from the left gives 1, from the right gives 2 — since these disagree, **the limit at $x=0$ does not exist**.
 
 # The practical rule: just plug in
 
@@ -132,13 +142,81 @@ $$\dfrac{x^2-4}{x-2} = \dfrac{(x-2)(x+2)}{x-2} = x + 2$$
 
 $$\lim_{x \to 2} \dfrac{x^2-4}{x-2} = \lim_{x \to 2}(x+2) = 4$$
 
+# Limits at infinity: the idea
+
+- So far we've asked "what happens as $x$ approaches a *number*?" Now we ask: what happens as $x$ approaches **infinity** — that is, as $x$ just keeps growing, without bound?
+
+$$\lim_{x \to \infty} f(x)$$
+
+- This is not a number $x$ can actually reach. It's shorthand for: "what value does $f(x)$ keep getting closer to, as $x$ gets larger and larger and larger?"
+
+- This is exactly the tool for "long-run" questions: does average cost ever bottom out? Does a diffusion/adoption curve ever fully saturate?
+
+# Limits at infinity: rule 1 — shrinking terms
+
+- The building block you need constantly: **any term of the form $\dfrac{k}{x^n}$ (with $n > 0$) goes to zero as $x \to \infty$.**
+
+$$\lim_{x \to \infty} \dfrac{k}{x^n} = 0 \qquad \text{for any constant } k \text{ and } n > 0$$
+
+- Why: as $x$ grows, you're dividing a fixed number $k$ by something enormous — the result shrinks toward zero.
+
+- Examples: $\lim_{x\to\infty} \dfrac{7}{x} = 0$, $\quad \lim_{x\to\infty} \dfrac{100}{x^2} = 0$, $\quad \lim_{x\to\infty} \dfrac{-3}{x} = 0$.
+
+- This single rule is enough to handle a **constant plus a shrinking term**: $\lim_{x\to\infty}\left(5 + \dfrac{100}{x}\right) = 5 + 0 = 5$.
+
+# Limits at infinity: rule 2 — ratios of polynomials
+
+- For $\lim_{x\to\infty} \dfrac{\text{polynomial}}{\text{polynomial}}$, compare the **highest power (degree)** of $x$ in the numerator vs. the denominator. There are exactly three cases:
+
+1. **Same degree** $\to$ the limit is the ratio of the **leading coefficients** (the numbers in front of the highest powers).
+2. **Numerator's degree is smaller** $\to$ the limit is $0$.
+3. **Numerator's degree is larger** $\to$ there is no finite limit — the function grows without bound.
+
+- The intuition behind all three: for huge $x$, only the *highest* power in each polynomial matters — every lower-power term becomes comparatively negligible.
+
+# Worked example: case 1 (same degree)
+
+- Find $\lim_{x \to \infty} \dfrac{3x^2 + 5x}{2x^2 - 1}$. Both top and bottom have degree 2.
+
+- Divide every term by $x^2$ (the highest power present) to make the shrinking terms explicit:
+
+$$\dfrac{3x^2 + 5x}{2x^2 - 1} = \dfrac{3 + 5/x}{2 - 1/x^2}$$
+
+- Now apply rule 1: $5/x \to 0$ and $1/x^2 \to 0$ as $x \to \infty$:
+
+$$\lim_{x \to \infty} \dfrac{3x^2 + 5x}{2x^2 - 1} = \dfrac{3 + 0}{2 - 0} = \dfrac{3}{2}$$
+
+- Shortcut check: ratio of leading coefficients is $3/2$ — matches.
+
+# Worked example: case 2 (smaller numerator degree)
+
+- Find $\lim_{x \to \infty} \dfrac{4x + 1}{x^2 + 3}$. Numerator has degree 1, denominator has degree 2 — numerator is smaller.
+
+- Divide every term by $x^2$ (the highest power in the *denominator*):
+
+$$\dfrac{4x+1}{x^2+3} = \dfrac{4/x + 1/x^2}{1 + 3/x^2}$$
+
+- Every term in the numerator shrinks to 0 by rule 1; the denominator settles at 1:
+
+$$\lim_{x \to \infty} \dfrac{4x+1}{x^2+3} = \dfrac{0 + 0}{1 + 0} = 0$$
+
+- Makes sense: the denominator grows much faster than the numerator, so the fraction gets squeezed toward zero.
+
+# Worked example: case 3 (larger numerator degree)
+
+- Find $\lim_{x \to \infty} \dfrac{x^2 + 1}{x + 3}$. Numerator has degree 2, denominator has degree 1 — numerator is larger.
+
+- Here the numerator grows faster than the denominator, so the fraction keeps growing rather than settling anywhere:
+
+$$\lim_{x \to \infty} \dfrac{x^2+1}{x+3} = \infty \quad \text{(no finite limit)}$$
+
+- Business reading: if $x$ were, say, total cost over a shrinking denominator, this would signal cost growing *without bound* relative to that denominator — a red flag, not a stabilizing ratio.
+
 # Application: what happens in the long run?
 
-- We can also ask what a function approaches as $x$ grows very large — useful for describing long-run behavior.
+- Now the applied version: a firm's average cost per unit is $\bar{C}(x) = \dfrac{100}{x} + 5$, where \$100 is fixed cost spread over $x$ units and \$5 is the variable cost per unit.
 
-- A firm's average cost per unit is $\bar{C}(x) = \dfrac{100}{x} + 5$, where \$100 is fixed cost spread over $x$ units and \$5 is the variable cost per unit.
-
-- As $x$ grows, the fixed-cost share shrinks toward zero, so:
+- This is exactly rule 1's "constant plus shrinking term" pattern. As $x$ grows, the fixed-cost share shrinks toward zero, so:
 
 $$\lim_{x \to \infty} \left(\dfrac{100}{x} + 5\right) = 5$$
 
@@ -200,6 +278,30 @@ $$f'(a) = \lim_{h \to 0} \dfrac{f(a+h) - f(a)}{h}$$
 
 - That's exactly why we rely on the differentiation *rules* (power, product, chain, etc.) instead of evaluating this limit from scratch every time — they're built-in shortcuts around this problem.
 
+# One derivative, two methods: the limit definition
+
+- Let's actually do it from scratch, for $f(x) = x^2$. Start from the definition and substitute:
+
+$$f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h} = \lim_{h \to 0} \dfrac{(x+h)^2 - x^2}{h}$$
+
+- Expand the numerator:
+
+$$= \lim_{h \to 0} \dfrac{x^2 + 2xh + h^2 - x^2}{h} = \lim_{h \to 0} \dfrac{2xh + h^2}{h}$$
+
+- This is $\frac{0}{0}$ at $h=0$, but it factors — cancel the common $h$:
+
+$$= \lim_{h \to 0} (2x + h) = 2x$$
+
+# One derivative, two methods: differentiation rules
+
+- Now the fast way, using the power rule from last lecture:
+
+$$f(x) = x^2 \quad \implies \quad f'(x) = 2x^{2-1} = 2x$$
+
+- **Same answer, $2x$, both ways.** The power rule isn't a different fact about derivatives — it's a shortcut that already has this limit-cancellation baked in, so you never have to repeat that algebra by hand.
+
+- This is the payoff of the whole lecture: the limit definition is *why* differentiation works; the rules are *how* you actually compute it day to day.
+
 # For you
 
 1. Evaluate $\lim_{x \to 4} \dfrac{x^2 - 16}{x - 4}$ by factoring and cancelling.
@@ -207,3 +309,5 @@ $$f'(a) = \lim_{h \to 0} \dfrac{f(a+h) - f(a)}{h}$$
 2. Evaluate the same limit using L'Hôpital's Rule, and check your answers match.
 
 3. A firm's average cost is $\bar{C}(x) = \dfrac{500}{x} + 8$. What does average cost approach as $x \to \infty$?
+
+4. Evaluate $\lim_{x \to \infty} \dfrac{2x + 7}{x^2 - 4}$. (Hint: compare the degrees of the numerator and denominator first.)
