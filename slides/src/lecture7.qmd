@@ -127,6 +127,38 @@ $$\text{Corr}(A, B) = \dfrac{2.6}{1.41 \times 2} \approx 0.92$$
 
 - Your finance course will build a formula for portfolio variance directly out of the pieces we just covered: individual variances, plus the covariance between assets.
 
+# Preview: portfolio expected return
+
+- Your finance course will present this exact formula on day one — labeled **"REVIEW,"** meaning you're expected to already know it walking in:
+
+$$E(R_P) = \sum_{i=1}^n w_i \, E(R_i)$$
+
+- In words: a portfolio's expected return is just the **weighted average** of each asset's expected return, where $w_i$ is the share of the portfolio invested in asset $i$.
+
+- Example: put 60% in Asset A, 40% in Asset B: $E(R_P) = 0.6(1) + 0.4(1) = 1\%$. (Since both assets happen to average 1% here, the split doesn't move the answer — risk is where the split actually matters, next.)
+
+# Preview: portfolio risk
+
+- Also labeled **"REVIEW"** in your finance course — the two-asset portfolio standard deviation:
+
+$$\sigma_P = \sqrt{w_A^2 \sigma_A^2 + w_B^2 \sigma_B^2 + 2 \, w_A w_B \, \text{Cov}(A,B)}$$
+
+- Every piece here is something you already have: $\sigma_A^2$ and $\sigma_B^2$ are the individual variances from earlier, and $\text{Cov}(A,B)$ is exactly the covariance we computed.
+
+- The only new idea is that risk doesn't just average — the covariance term lets two assets' risks partly cancel each other out.
+
+# Example: portfolio risk
+
+- Same 60%/40% split. Recall $\sigma_A^2 = 2$, $\sigma_B^2 = 4$, $\text{Cov}(A,B) = 2.6$:
+
+$$\sigma_P^2 = (0.6)^2(2) + (0.4)^2(4) + 2(0.6)(0.4)(2.6) = 0.72 + 0.64 + 1.248 = 2.608$$
+
+$$\sigma_P = \sqrt{2.608} \approx 1.62\%$$
+
+- Compare to the naive weighted-average risk: $0.6(1.41) + 0.4(2) = 1.65\%$. The portfolio's actual risk is *lower* — that's diversification, made concrete.
+
+- Because these two assets are highly correlated (0.92), the benefit here is small. The lower the correlation, the bigger this gap gets — which is exactly why your finance course spends so much time on it.
+
 # Scatter plots and fitting a line
 
 - Covariance and correlation summarize a relationship with a single number. A **scatter plot** shows it visually — one point per pair of observations.
