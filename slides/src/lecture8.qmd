@@ -1,0 +1,269 @@
+---
+title: Quantitative Methods for Business and Economics
+subtitle: Lecture 8 - Implicit Differentiation, Related Rates, and Diminishing Returns
+author: Daniel Sánchez Pazmiño
+date: 2026-01-01
+theme: berlin
+date-format: "YYYY"
+format: beamer
+fontsize: 10pt
+include-in-header:
+    - text: |
+        \setbeamercolor{background canvas}{bg=white}
+        \setbeamertemplate{caption}[numbered]
+        \usecolortheme[named=black]{structure}
+        \usepackage{tikz}
+        \usepackage{pgfplots}
+---
+
+# Explicit vs. implicit functions
+
+- So far, every function we've differentiated has been **explicit**: $y = f(x)$, with $y$ isolated on one side.
+
+- Not every equation looks like that. Consider $x^2 + 4xy - 3y^2 + 7 = 0$ — this is an **implicit** relationship between $x$ and $y$: you may or may not be able to solve for $y$ cleanly.
+
+- We still want to know $\dfrac{dy}{dx}$ even when we can't (or don't want to) isolate $y$ first.
+
+# Why can't we just solve for y first?
+
+- Sometimes you *can* isolate $y$ — it's just messier than working implicitly. Other times, you genuinely **cannot**.
+
+- Example: $y^5 + 3y - x^2 = 0$. There is no algebraic formula that solves this for $y$ — equations with a $y^5$ term generally don't have one.
+
+- And yet, the curve this equation describes still has a perfectly well-defined slope at every point. Implicit differentiation finds $\dfrac{dy}{dx}$ **directly from the equation**, without ever solving for $y$ first.
+
+# Why differentiate implicitly?
+
+- The key idea: treat $y$ as a function of $x$, even though we haven't written out what that function is.
+
+- This means every time you differentiate a $y$-term, the chain rule kicks in:
+
+$$\dfrac{d}{dx}\left[y^2\right] = 2y \cdot \dfrac{dy}{dx} = 2y\,y' \qquad \text{(not just } 2y\text{)}$$
+
+- Same idea for higher powers: $\dfrac{d}{dx}[y^3] = 3y^2 y'$, and so on. This one habit is the whole technique.
+
+# Making the insight concrete
+
+- Here's *why* the chain rule applies. Imagine, just for illustration, that $y$ actually does equal some specific function of $x$ — say $y = 5x+4$.
+
+- Then $y^2 = (5x+4)^2$, and the ordinary chain rule gives:
+
+$$(y^2)' = \left[(5x+4)^2\right]' = 2(5x+4)\cdot 5 = 2y \cdot y'$$
+
+since $y=5x+4$ and $y' = 5$ in this example.
+
+- We don't actually know $y$'s formula — that's the whole point of "implicit" — but the *pattern* is identical no matter what $y$ secretly is. That's why we're always allowed to write $2y\,y'$ without knowing $y$ explicitly.
+
+# Example 1: setting up
+
+- Consider $x^2 - 3xy + 4y = 0$. Before differentiating, identify which rule each term needs:
+
+    - $x^2$: an ordinary power of $x$ → **power rule**
+    - $-3xy$: a product of $x$ and $y$ → **product rule**
+    - $4y$: a plain multiple of $y$ → **chain rule** (since $y$ depends on $x$)
+
+- Let's take them one at a time.
+
+# Example 1: differentiating term by term
+
+- $\dfrac{d}{dx}[x^2] = 2x$
+
+- For $-3xy$: write it as $-3\cdot(xy)$ and apply the product rule to $xy$, with $u=x$ ($u'=1$) and $v=y$ ($v'=y'$):
+
+$$\dfrac{d}{dx}[xy] = u'v + uv' = y + xy' \quad\implies\quad \dfrac{d}{dx}[-3xy] = -3y - 3xy'$$
+
+- $\dfrac{d}{dx}[4y] = 4y'$ (chain rule)
+
+- The whole equation differentiates to (right-hand side stays $0$):
+
+$$2x - 3y - 3xy' + 4y' = 0$$
+
+# Example 1: solving for y'
+
+- Collect the $y'$ terms on one side:
+
+$$(4 - 3x)\,y' = 3y - 2x$$
+
+$$y' = \dfrac{3y - 2x}{4 - 3x}$$
+
+- Notice the answer depends on **both** $x$ and $y$ — that's normal for implicit differentiation, not a mistake.
+
+# Example 2: setting up
+
+- Consider $xe^x + \ln y + 3y = 0$. Identify the rule for each term:
+
+    - $xe^x$: a product of $x$ and $e^x$ → **product rule**
+    - $\ln y$: $y$ depends on $x$, and we're taking the log of it → **chain rule**
+    - $3y$: a plain multiple of $y$ → **chain rule** again
+
+# Example 2: differentiating term by term
+
+- For $xe^x$: product rule with $u=x$ ($u'=1$), $v=e^x$ ($v'=e^x$):
+
+$$\dfrac{d}{dx}[xe^x] = u'v + uv' = e^x + xe^x$$
+
+- For $\ln y$: the derivative of $\ln(\text{something})$ is $\dfrac{1}{\text{something}}$ times the derivative of that something:
+
+$$\dfrac{d}{dx}[\ln y] = \dfrac{1}{y}\,y'$$
+
+- For $3y$: $\dfrac{d}{dx}[3y] = 3y'$. Combined:
+
+$$\left(e^x + xe^x\right) + \dfrac{1}{y}\,y' + 3y' = 0$$
+
+# Example 2: solving for y'
+
+- Collect the $y'$ terms:
+
+$$y'\left(\dfrac{1}{y} + 3\right) = -e^x - xe^x \quad \implies \quad y' = \dfrac{-e^x - xe^x}{\frac{1}{y} + 3}$$
+
+- To clean up the fraction inside, multiply top and bottom by $y$:
+
+$$y' = \dfrac{-y\left(e^x + xe^x\right)}{1 + 3y}$$
+
+# Related rates: the idea
+
+- Sometimes two quantities are linked by an equation, and **both** are changing over time — think price and demand, or radius and volume.
+
+- If we differentiate the linking equation **with respect to time** $t$, the chain rule connects the two rates: $\dfrac{dx}{dt}$ and $\dfrac{dp}{dt}$ show up together in the same expression.
+
+- This lets you find one rate of change from the other, without ever needing an explicit formula relating $x$ and $p$ directly.
+
+# The method
+
+A related-rates problem always follows the same three steps:
+
+1. **Identify all variables** — which rate is given, which rate is unknown.
+
+2. **Differentiate the equation connecting the variables**, with respect to time.
+
+3. **Solve for the derivative that gives the unknown rate.**
+
+# Worked example: price and demand, setting up
+
+- Price $p$ and demand $x$ for a product are related by:
+
+$$2x^2 + 5xp + 50p^2 = 80{,}000$$
+
+- **Step 1 (identify):** Given $\dfrac{dp}{dt} = \$2$/month, at the moment when $p=\$30$. Unknown: $\dfrac{dx}{dt}$.
+
+- **Step 2 (differentiate):** both $x$ and $p$ depend on $t$, so every term needs the chain rule — and the $5xp$ term also needs the product rule, since it's a product of two quantities that both change with time.
+
+# Price/demand: differentiating, first two terms
+
+- $\dfrac{d}{dt}[2x^2] = 4x\dfrac{dx}{dt}$ (chain rule)
+
+- $\dfrac{d}{dt}[5xp]$: product rule, treating $x$ and $p$ as functions of $t$ ($u=x$, $u'=\frac{dx}{dt}$; $v=p$, $v'=\frac{dp}{dt}$):
+
+$$5(u'v + uv') = 5p\dfrac{dx}{dt} + 5x\dfrac{dp}{dt}$$
+
+# Price/demand: differentiating, last term and combining
+
+- $\dfrac{d}{dt}[50p^2] = 100p\dfrac{dp}{dt}$ (chain rule).
+
+- The right-hand side, $80{,}000$, is a constant, so its derivative is $0$.
+
+- Putting every term together:
+
+$$4x\dfrac{dx}{dt} + 5p\dfrac{dx}{dt} + 5x\dfrac{dp}{dt} + 100p\dfrac{dp}{dt} = 0$$
+
+# Worked example: price and demand, solving for dx/dt
+
+- **Step 3 (solve):** collect every $\dfrac{dx}{dt}$ term on one side:
+
+$$(4x+5p)\dfrac{dx}{dt} = -(5x+100p)\dfrac{dp}{dt}$$
+
+$$\dfrac{dx}{dt} = \dfrac{-(5x + 100p)\,\frac{dp}{dt}}{4x + 5p}$$
+
+# Setting up the equation for x
+
+- We know $p=30$ and $\dfrac{dp}{dt}=2$, but we still need the value of $x$ at that moment — find it from the **original, undifferentiated** equation:
+
+$$2x^2 + 5x(30) + 50(30)^2 = 80{,}000$$
+
+$$2x^2 + 150x + 45{,}000 = 80{,}000$$
+
+$$2x^2 + 150x - 35{,}000 = 0$$
+
+- Divide every term by 2 to simplify:
+
+$$x^2 + 75x - 17{,}500 = 0$$
+
+# Solving for x
+
+- Apply the quadratic formula, $x = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$, with $a=1$, $b=75$, $c=-17{,}500$:
+
+$$x = \dfrac{-75 \pm \sqrt{75^2 + 4(17{,}500)}}{2}$$
+
+$$x = \dfrac{-75 \pm \sqrt{75{,}625}}{2} = \dfrac{-75\pm275}{2}$$
+
+- Taking the positive root (demand can't be negative):
+
+$$x = \dfrac{-75+275}{2} = \dfrac{200}{2} = 100$$
+
+# Plugging in numbers: the final answer
+
+- Now plug $x=100$, $p=30$, $\dfrac{dp}{dt}=2$ into the rate formula derived earlier:
+
+$$\dfrac{dx}{dt} = \dfrac{-(5(100) + 100(30))(2)}{4(100) + 5(30)} = \dfrac{-(500+3{,}000)(2)}{400+150} = \dfrac{-7{,}000}{550} \approx -12.73$$
+
+- Demand is falling by about 12.73 units/month — makes sense: as price rises, demand drops.
+
+# Application: diminishing returns
+
+- Recall the second-derivative test from single-variable optimization: $f''(x) = 0$ marks where a function's rate of change switches from increasing to decreasing.
+
+- Applied to a sales or production function, that point is called the **point of diminishing returns**: spending more keeps helping, but each additional unit helps *less* than the last one did.
+
+- Finding it is nothing new: since the rate function (say $N'(x)$) is itself just a function, we find *its* maximum the same way we'd maximize anything — by taking *its* derivative, $N''(x)$, and setting it to zero.
+
+# Application: diminishing returns, worked example
+
+- A firm's monthly sales, as a function of advertising spend $x$ (in \$1,000s), are $N(x) = 3x^3 - 0.25x^4 + 200$ for $0 < x < 9$.
+
+- The rate of change of sales is $N'(x) = 9x^2 - x^3$. Find where this rate itself stops increasing:
+
+$$N''(x) = 18x - 3x^2 = 3x(6-x) = 0 \implies x = 6$$
+
+- At $x=6$ (\$6,000 spent), the rate of change of sales is at its **maximum**: $N'(6) = 9(36) - 216 = 108$ units/month.
+
+- Beyond \$6,000 in spending, each additional dollar still helps sales — just by less and less.
+
+# For you
+
+1. Differentiate $x^3 + 2xy - y^2 = 10$ implicitly and solve for $y'$.
+
+2. A circle's area $A$ and radius $r$ are related by $A = \pi r^2$. If the radius is growing at $\frac{dr}{dt} = 3$ cm/min when $r=5$ cm, find $\frac{dA}{dt}$.
+
+3. A production function has marginal output $M(x) = 12x^2 - x^3$. Find the point of diminishing returns (where $M'(x)=0$) and confirm it's a maximum using the second-derivative test.
+
+# Solution 1: implicit differentiation
+
+- Differentiate $x^3+2xy-y^2=10$ term by term: $x^3\to3x^2$ (power rule); $2xy\to2y+2xy'$ (product rule, $u=2x,v=y$); $-y^2\to-2yy'$ (chain rule).
+
+$$3x^2 + 2y + 2xy' - 2yy' = 0$$
+
+- Collect the $y'$ terms and solve:
+
+$$y'(2x-2y) = -3x^2-2y \quad\implies\quad y' = \dfrac{-3x^2-2y}{2x-2y} = -\dfrac{3x^2+2y}{2(x-y)}$$
+
+# Solution 2: related rates
+
+- Given: $\dfrac{dr}{dt}=3$ cm/min, $r=5$ cm. Unknown: $\dfrac{dA}{dt}$. Differentiate $A=\pi r^2$ with respect to $t$ (chain rule, since $r$ depends on $t$):
+
+$$\dfrac{dA}{dt} = \pi\cdot 2r \cdot \dfrac{dr}{dt} = 2\pi r\,\dfrac{dr}{dt}$$
+
+- Plug in the numbers:
+
+$$\dfrac{dA}{dt} = 2\pi(5)(3) = 30\pi \approx 94.25 \text{ cm}^2/\text{min}$$
+
+# Solution 3: diminishing returns
+
+- $M(x)=12x^2-x^3$ is itself the marginal function, so the point of diminishing returns is where $M(x)$ stops increasing — where $M'(x)=0$:
+
+$$M'(x) = 24x-3x^2 = 3x(8-x) = 0 \implies x=0 \text{ or } x=8$$
+
+- $x=0$ is just the trivial starting point, so the meaningful answer is $x=8$. Confirm it's a maximum with the second-derivative test:
+
+$$M''(x) = 24-6x \quad\implies\quad M''(8) = 24-48 = -24 < 0$$
+
+- Since $M''(8) < 0$, $x=8$ is confirmed as a local **maximum** — before $x=8$, marginal output is climbing; after, it's falling.
